@@ -189,7 +189,13 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
-                    blocks.Remove(b);
+                    --b.hp;
+                    //blocks.Remove(b);
+
+                    if (b.hp == 0)
+                    {
+                        blocks.Remove(b);
+                    }
 
                     if (blocks.Count == 0)
                     {
