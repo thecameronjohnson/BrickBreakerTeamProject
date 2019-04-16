@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <level number ="1" name ="first">
   <brick>
-    <x></x>
-    <y></y>
-    <hp></hp>
+    <x>1</x>
+    <y>1</y>
+    <hp>1</hp>
   </brick>
 </level>
