@@ -20,10 +20,10 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
+        Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
-        int lives;
+        int lives, score, scoreMult, bSpeedMult, pSpeedMult;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -52,7 +52,7 @@ namespace BrickBreaker
             lives = 3;
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = false;
+            leftArrowDown = rightArrowDown = escDown = gamePaused = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -80,7 +80,7 @@ namespace BrickBreaker
             while (blocks.Count < 12)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
+                Block b1 = new Block(x, 10, 1);
                 blocks.Add(b1);
             }
 
@@ -100,6 +100,20 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = true;
+                    break;
+                case Keys.Escape:
+                    if (gamePaused == true)
+                    {
+                        //restart the game
+                        gamePaused = false;
+                        gameTimer.Enabled = true;
+                    }
+                    else
+                    {
+                        gamePaused = true;
+                    }
+
+                    //TODO: change screen
                     break;
                 default:
                     break;
@@ -124,6 +138,12 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            //pause the game
+            if (gamePaused == true)
+            {
+                gameTimer.Enabled = false;
+            }
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -133,6 +153,11 @@ namespace BrickBreaker
             {
                 paddle.Move("right");
             }
+
+            if (escDown == true)
+            {
+                gamePaused = !gamePaused;
+            }            
 
             // Move ball
             ball.Move();
@@ -179,6 +204,7 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
+       
 
         public void OnEnd()
         {
