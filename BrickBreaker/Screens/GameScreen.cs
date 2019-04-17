@@ -1,7 +1,7 @@
 ﻿/*  Created by: Steven HL
  *  Project: Brick Breaker
  *  Date: Tuesday, April 4th
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -86,7 +87,7 @@ namespace BrickBreaker
             while (blocks.Count < 12)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
+                Block b1 = new Block(x, 10, 1);
                 blocks.Add(b1);
             }
 
@@ -217,6 +218,7 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
+       
 
         public void OnEnd()
         {
