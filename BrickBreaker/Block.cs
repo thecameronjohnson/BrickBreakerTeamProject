@@ -19,12 +19,26 @@ namespace BrickBreaker
 
         public static Random rand = new Random();
 
-        public Block(int _x, int _y, int _hp, Color _colour)
+        public Block(int _x, int _y, int _hp)
         {
             x = _x;
             y = _y;
             hp = _hp;
-            colour = _colour;
+            switch (_hp)
+            {
+                case 1:
+                    colour = Color.Red;
+                    break;
+                case 2:
+                    colour = Color.Yellow;
+                    break;
+                case 3:
+                    colour = Color.Green;
+                    break;
+                case 4:
+                    colour = Color.Cyan;
+                    break;
+            }
         }
     }
 }
