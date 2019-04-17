@@ -59,5 +59,21 @@ namespace BrickBreaker.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level number =&quot;1&quot; name =&quot;first&quot;&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;&lt;/x&gt;
+        ///    &lt;y&gt;&lt;/y&gt;
+        ///    &lt;hp&gt;&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Levels {
+            get {
+                return ResourceManager.GetString("Levels", resourceCulture);
+            }
+        }
     }
 }
