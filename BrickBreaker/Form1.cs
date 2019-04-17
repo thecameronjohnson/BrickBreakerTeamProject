@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-//Sam Branch 
+ 
 namespace BrickBreaker
 {
     public partial class Form1 : Form
