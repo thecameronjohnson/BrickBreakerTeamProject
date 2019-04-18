@@ -61,18 +61,105 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blueBrick {
+            get {
+                object obj = ResourceManager.GetObject("blueBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button {
+            get {
+                object obj = ResourceManager.GetObject("button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Green_Brick {
+            get {
+                object obj = ResourceManager.GetObject("Green_Brick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level number =&quot;1&quot; name =&quot;first&quot;&gt;
+        ///&lt;levels&gt;
+        ///&lt;level number =&quot;1&quot; name =&quot;Level 1&quot;&gt;
         ///  &lt;brick&gt;
-        ///    &lt;x&gt;&lt;/x&gt;
-        ///    &lt;y&gt;&lt;/y&gt;
-        ///    &lt;hp&gt;&lt;/hp&gt;
+        ///    &lt;x&gt;69&lt;/x&gt;
+        ///    &lt;y&gt;47&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
         ///  &lt;/brick&gt;
-        ///&lt;/level&gt;.
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;107&lt;/x&gt;
+        ///    &lt;y&gt;47&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;69&lt;/x&gt;
+        ///    &lt;y&gt;90&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;107&lt;/x&gt;
+        ///    &lt;y&gt;90&lt;/y&gt;
+        ///    &lt;hp&gt;1&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;69&lt;/x&gt;
+        ///    &lt;y&gt;137&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///  &lt;brick&gt;
+        ///    &lt;x&gt;107&lt;/x&gt;
+        ///    &lt;y&gt;137&lt;/y&gt;
+        ///    &lt;hp&gt;2&lt;/hp&gt;
+        ///  &lt;/brick&gt;
+        ///
+        ///  &lt;b [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Levels {
             get {
                 return ResourceManager.GetString("Levels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap purpBrick {
+            get {
+                object obj = ResourceManager.GetObject("purpBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap redBrick {
+            get {
+                object obj = ResourceManager.GetObject("redBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stars {
+            get {
+                object obj = ResourceManager.GetObject("Stars", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
