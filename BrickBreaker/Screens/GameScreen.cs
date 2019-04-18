@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -20,7 +21,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
+        Boolean leftArrowDown, rightArrowDown, aKeyDown, dKeyDown;
 
         // Game values
         int lives;
@@ -52,7 +53,7 @@ namespace BrickBreaker
             lives = 3;
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = false;
+            leftArrowDown = rightArrowDown = aKeyDown = dKeyDown = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -101,6 +102,12 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
+                case Keys.A:
+                    aKeyDown = true;
+                    break;
+                case Keys.D:
+                    dKeyDown = true;
+                    break;
                 default:
                     break;
             }
@@ -116,6 +123,12 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = false;
+                    break;
+                case Keys.A:
+                    aKeyDown = false;
+                    break;
+                case Keys.D:
+                    dKeyDown = false;
                     break;
                 default:
                     break;
@@ -181,20 +194,16 @@ namespace BrickBreaker
         }
         private void AndMethod()
         {
+            
             //my method no touch
+
         }
        
 
         public void OnEnd()
         {
             // Goes to the game over screen
-            Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
-            
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
-
-            form.Controls.Add(ps);
-            form.Controls.Remove(this);
+            Form1.ChangeScreen(this, "MenuScreen");
         }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
