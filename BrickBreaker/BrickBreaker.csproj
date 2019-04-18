@@ -127,9 +127,26 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\blueBrick.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Levels.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purpBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redBrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

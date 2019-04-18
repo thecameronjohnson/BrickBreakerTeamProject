@@ -1,7 +1,7 @@
 ﻿/*  Created by: Steven HL
  *  Project: Brick Breaker
  *  Date: Tuesday, April 4th
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,10 +21,14 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, aKeyDown, dKeyDown;
+        Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
-        int lives;
+        int lives, score, scoreMult;
+        public static int bSpeedMult = 1;
+        public static int pSpeedMult = 1;
+        Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
+        SolidBrush scoreBrush = new SolidBrush(Color.White);
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -36,7 +40,7 @@ namespace BrickBreaker
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
+
 
         #endregion
 
@@ -52,8 +56,10 @@ namespace BrickBreaker
             //set life counter
             lives = 3;
 
+            scoreMult = 1;
+
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = aKeyDown = dKeyDown = false;
+            leftArrowDown = rightArrowDown = escDown = gamePaused = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -81,7 +87,7 @@ namespace BrickBreaker
             while (blocks.Count < 12)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1);
+                Block b1 = new Block(x, 10, 2);
                 blocks.Add(b1);
             }
 
@@ -102,11 +108,19 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
-                case Keys.A:
-                    aKeyDown = true;
-                    break;
-                case Keys.D:
-                    dKeyDown = true;
+                case Keys.Escape:
+                    if (gamePaused == true)
+                    {
+                        //restart the game
+                        gamePaused = false;
+                        gameTimer.Enabled = true;
+                    }
+                    else
+                    {
+                        gamePaused = true;
+                    }
+
+                    //TODO: change screen
                     break;
                 default:
                     break;
@@ -124,12 +138,6 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = false;
                     break;
-                case Keys.A:
-                    aKeyDown = false;
-                    break;
-                case Keys.D:
-                    dKeyDown = false;
-                    break;
                 default:
                     break;
             }
@@ -137,6 +145,12 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            //pause the game
+            if (gamePaused == true)
+            {
+                gameTimer.Enabled = false;
+            }
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -146,6 +160,11 @@ namespace BrickBreaker
             {
                 paddle.Move("right");
             }
+
+            if (escDown == true)
+            {
+                gamePaused = !gamePaused;
+            }            
 
             // Move ball
             ball.Move();
@@ -167,7 +186,7 @@ namespace BrickBreaker
                     gameTimer.Enabled = false;
                     OnEnd();
                 }
-            }
+            } 
 
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
@@ -177,7 +196,14 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
-                    blocks.Remove(b);
+                    --b.hp;
+                    //blocks.Remove(b);
+
+                    if (b.hp == 0)
+                    {
+                        blocks.Remove(b);
+                        score = score + 100*scoreMult;
+                    }
 
                     if (blocks.Count == 0)
                     {
@@ -194,16 +220,20 @@ namespace BrickBreaker
         }
         private void AndMethod()
         {
-            
             //my method no touch
-
         }
        
 
         public void OnEnd()
         {
             // Goes to the game over screen
-            Form1.ChangeScreen(this, "MenuScreen");
+            Form form = this.FindForm();
+            MenuScreen ps = new MenuScreen();
+            
+            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+
+            form.Controls.Add(ps);
+            form.Controls.Remove(this);
         }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
@@ -215,11 +245,18 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
+                SolidBrush blockBrush = new SolidBrush(b.colour);
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+
+            //draws score
+            e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
+
+            //draw lives
+            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
         }
     }
 }
