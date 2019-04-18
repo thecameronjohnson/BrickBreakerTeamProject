@@ -218,6 +218,10 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
+        private void AndMethod()
+        {
+            //my method no touch
+        }
        
 
         public void OnEnd()
