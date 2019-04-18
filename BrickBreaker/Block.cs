@@ -24,21 +24,7 @@ namespace BrickBreaker
             x = _x;
             y = _y;
             hp = _hp;
-            switch (_hp)
-            {
-                case 1:
-                    colour = Color.Red;
-                    break;
-                case 2:
-                    colour = Color.Yellow;
-                    break;
-                case 3:
-                    colour = Color.Green;
-                    break;
-                case 4:
-                    colour = Color.Cyan;
-                    break;
-            }
+            
         }
     }
 }
