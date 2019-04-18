@@ -27,7 +27,7 @@ namespace BrickBreaker
         int lives, score, scoreMult;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
-        Font scoreFont = new Font("Verdana", 14, FontStyle.Regular);
+        Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
         SolidBrush scoreBrush = new SolidBrush(Color.White);
 
         // Paddle and Ball objects
@@ -41,7 +41,7 @@ namespace BrickBreaker
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
-        SolidBrush blockBrush = new SolidBrush(Color.Red);
+
 
         #endregion
 
@@ -89,7 +89,7 @@ namespace BrickBreaker
             while (blocks.Count < 12)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1);
+                Block b1 = new Block(x, 10, 2);
                 blocks.Add(b1);
             }
 
@@ -259,6 +259,10 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
+        private void AndMethod()
+        {
+            //my method no touch
+        }
        
 
         public void OnEnd()
@@ -282,6 +286,23 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
+                switch (b.hp)
+                {
+                    case 1:
+                        b.colour = Color.Red;
+                        break;
+                    case 2:
+                        b.colour = Color.Yellow;
+                        break;
+                    case 3:
+                        b.colour = Color.Green;
+                        break;
+                    case 4:
+                        b.colour = Color.Cyan;
+                        break;
+                }
+
+                SolidBrush blockBrush = new SolidBrush(b.colour);
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
