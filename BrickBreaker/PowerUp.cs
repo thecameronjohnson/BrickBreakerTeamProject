@@ -45,8 +45,7 @@ namespace BrickBreaker
                         GameScreen.scoreMult = GameScreen.scoreMult + 5;
                         break;
                     case 4:
-                        break;
-                    case 5:
+                        GameScreen.score = GameScreen.score + 2;
                         break;
                 }
             }
