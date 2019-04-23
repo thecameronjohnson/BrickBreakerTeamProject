@@ -1,19 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<data>
-
-  <highscore>
-    <score1></score1>
-    <score2></score2>
-    <score3></score3>
-    <score4></score4>
-    <score5></score5>
-    <score6></score6>
-    <score7></score7>
-    <score8></score8>
-    <score9></score9>
-    <score10></score10>
-  </highscore>
-
   <levels>
     <level number ="1" name ="Level 1">
       <brick>
@@ -76,7 +61,6 @@
         <y>137</y>
         <hp>2</hp>
       </brick>
-
       <brick>
         <x>302</x>
         <y>181</y>
@@ -161,4 +145,3 @@
       </brick>
     </level>
   </levels>
-</data>
