@@ -17,8 +17,7 @@ namespace BrickBreaker
             y = _y;
             xSpeed = _xSpeed;
             ySpeed = _ySpeed;
-            size = _ballSize;
-               
+            size = _ballSize;             
         }
 
         public void Move()
