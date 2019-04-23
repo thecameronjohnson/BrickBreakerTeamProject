@@ -262,54 +262,10 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
-        private void LevelLoad(string levelNo)
-        {
-            {
-                XmlReader levelReader = XmlReader.Create("Resources/Levels.xml");
-                while (levelReader.Read())
-                {
-                    levelReader.ReadToFollowing("level");
-                    level = levelReader.GetAttribute("number");
-                    if (level == levelNo)
-                    {
-                        XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
-                        while (brickReader.Read())
-                        {
-                            string newX, newY, newHP;
-                            Block b = new Block(0, 0, 0);
+        
+       
 
-                            brickReader.ReadToFollowing("brick");
-                            newX = brickReader.GetAttribute("x");
-                            newY = brickReader.GetAttribute("y");
-                            newHP = brickReader.GetAttribute("hp");
-
-                            //brickReader.ReadToFollowing("x");
-                            //newX = brickReader.ReadString();
-
-                            //brickReader.ReadToFollowing("y");
-                            //newY = brickReader.ReadString();
-
-                            //brickReader.ReadToFollowing("hp");
-                            //newHP = brickReader.ReadString();
-
-                            b.x = Convert.ToInt16(newX);
-                            b.y = Convert.ToInt16(newY);
-                            b.hp = Convert.ToInt16(newHP);
-
-                            blocks.Add(b);
-                        }
-                        brickReader.Close();
-                    }
-                    levelName = levelReader.GetAttribute("name");
-                    levelReader.Close();
-                }
-
-
-                //my method no touch
-            }
-
-
-            public void OnEnd()
+        public void OnEnd()
         {
             // Goes to the game over screen
             Form form = this.FindForm();
