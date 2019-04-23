@@ -26,5 +26,24 @@ namespace BrickBreaker
             hp = _hp;
             
         }
+        public Color UpdateColour()
+        {
+            switch (hp)
+            {
+                case 1:
+                     return Color.Red;
+                    
+                case 2:
+                    return Color.Yellow;
+                    
+                case 3:
+                    return Color.Green;
+                   
+                case 4:
+                    return Color.Cyan;
+                    
+            }
+            return Color.Pink;
+        }
     }
 }
