@@ -16,7 +16,7 @@
 
 <levels>
 <level number ="1" name ="Level 1">
-  <brick x ="69" y ="47" hp ="1">
+  <brick>
     <x>69</x>
     <y>47</y>
     <hp>1</hp>

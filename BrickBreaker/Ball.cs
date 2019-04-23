@@ -100,12 +100,35 @@ namespace BrickBreaker
             // Collision with left wall
             if (x <= 0)
             {
-                xSpeed *= -1;
+                if (xSpeed == -6) //if xspeed is *6* while colliding, move to the right that amount
+                {
+                    xSpeed = 6;
+                }
+                else if (xSpeed == -7) //if xspeed is *7* while colliding, move to the right that amount
+                {
+                    xSpeed = 7;
+                }
+                else //if xspeed is *8* while colliding, move to the right that amount
+                {
+                    xSpeed = 8;
+                }
             }
+
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                xSpeed *= -1;
+                if (xSpeed == 6) //if xspeed is *6* while colliding, move to the left that amount
+                {
+                    xSpeed = -6;
+                }
+                else if (xSpeed == 7)
+                {
+                    xSpeed = -7;
+                }
+                else
+                {
+                    xSpeed = -8;
+                }
             }
             // Collision with top wall
             if (y <= 2)

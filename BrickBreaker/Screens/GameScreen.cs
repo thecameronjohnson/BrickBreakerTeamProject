@@ -37,6 +37,7 @@ namespace BrickBreaker
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        List<Ball> ballList = new List<Ball>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -74,11 +75,12 @@ namespace BrickBreaker
             int ballX = this.Width / 2 - 10;
             int ballY = this.Height - paddle.height - 80;
 
-            // Creates a new ball
+            // Creates a new ball           
             int xSpeed = 6;
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+            ballList.Add(ball);
 
             LevelLoad("1");
 
@@ -176,14 +178,53 @@ namespace BrickBreaker
             ball.WallCollision(this);
 
             // Check for ball hitting bottom of screen
-            if (ball.BottomCollision(this))
+            foreach(Ball b in ballList)
+            {
+                if (ballList.Count() < 1)
+                {
+                    if (b.BottomCollision(this))
+                    {
+                        ballList.Remove(b);
+                    }
+                }
+
+                if(ballList.Count() == 1)
+                {
+                    if (b.BottomCollision(this))
+                    {
+                        lives--;
+
+                        // Moves the ball back to origin
+                        b.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                        b.y = (this.Height - paddle.height) - 85;
+                        b.xSpeed = 6;
+                        b.ySpeed = 6;
+                        b.size = 20;
+
+                        if (lives == 0)
+                        {
+                            gameTimer.Enabled = false;
+                            OnEnd();
+                        }
+                    }
+                }
+            }
+
+
+            if (ballList.Count() == 0)
             {
                 lives--;
 
                 // Moves the ball back to origin
-                ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-                ball.y = (this.Height - paddle.height) - 85;
+                int ballX = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                int ballY = (this.Height - paddle.height) - 85;
+                int xSpeed = 6;
+                int ySpeed = 6;
+                int ballSize = 20;
 
+                ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+                ballList.Add(ball);
+                
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
@@ -223,50 +264,52 @@ namespace BrickBreaker
         }
         private void LevelLoad(string levelNo)
         {
-            XmlReader levelReader = XmlReader.Create("Resources/Levels.xml");
-            while(levelReader.Read())
             {
-                levelReader.ReadToFollowing("level");
-                level = levelReader.GetAttribute("number");
-                if (level == levelNo)
+                XmlReader levelReader = XmlReader.Create("Resources/Levels.xml");
+                while (levelReader.Read())
                 {
-                    XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
-                    while (brickReader.Read())
+                    levelReader.ReadToFollowing("level");
+                    level = levelReader.GetAttribute("number");
+                    if (level == levelNo)
                     {
-                        string newX, newY, newHP;
-                        Block b = new Block(0, 0, 0);
+                        XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
+                        while (brickReader.Read())
+                        {
+                            string newX, newY, newHP;
+                            Block b = new Block(0, 0, 0);
 
-                        brickReader.ReadToFollowing("brick");
-                        newX = brickReader.GetAttribute("x");
-                        newY = brickReader.GetAttribute("y");
-                        newHP = brickReader.GetAttribute("hp");
+                            brickReader.ReadToFollowing("brick");
+                            newX = brickReader.GetAttribute("x");
+                            newY = brickReader.GetAttribute("y");
+                            newHP = brickReader.GetAttribute("hp");
 
-                        //brickReader.ReadToFollowing("x");
-                        //newX = brickReader.ReadString();
+                            //brickReader.ReadToFollowing("x");
+                            //newX = brickReader.ReadString();
 
-                        //brickReader.ReadToFollowing("y");
-                        //newY = brickReader.ReadString();
+                            //brickReader.ReadToFollowing("y");
+                            //newY = brickReader.ReadString();
 
-                        //brickReader.ReadToFollowing("hp");
-                        //newHP = brickReader.ReadString();
+                            //brickReader.ReadToFollowing("hp");
+                            //newHP = brickReader.ReadString();
 
-                        b.x = Convert.ToInt16(newX);
-                        b.y = Convert.ToInt16(newY);
-                        b.hp = Convert.ToInt16(newHP);
+                            b.x = Convert.ToInt16(newX);
+                            b.y = Convert.ToInt16(newY);
+                            b.hp = Convert.ToInt16(newHP);
 
-                        blocks.Add(b);
+                            blocks.Add(b);
+                        }
+                        brickReader.Close();
                     }
-                    brickReader.Close();
+                    levelName = levelReader.GetAttribute("name");
+                    levelReader.Close();
                 }
-                levelName = levelReader.GetAttribute("name");
-                levelReader.Close();
+
+
+                //my method no touch
             }
-           
 
-        }
-       
 
-        public void OnEnd()
+            public void OnEnd()
         {
             // Goes to the game over screen
             Form form = this.FindForm();
@@ -287,23 +330,7 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                switch (b.hp)
-                {
-                    case 1:
-                        b.colour = Color.Red;
-                        break;
-                    case 2:
-                        b.colour = Color.Yellow;
-                        break;
-                    case 3:
-                        b.colour = Color.Green;
-                        break;
-                    case 4:
-                        b.colour = Color.Cyan;
-                        break;
-                }
-
-                SolidBrush blockBrush = new SolidBrush(b.colour);
+                SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
