@@ -15,7 +15,7 @@ namespace BrickBreaker
         public int x;
         public int y; 
         public int hp;
-        public string colour;
+        public Color colour;
 
         public static Random rand = new Random();
 
@@ -24,21 +24,26 @@ namespace BrickBreaker
             x = _x;
             y = _y;
             hp = _hp;
-            switch (_hp)
+            
+        }
+        public Color UpdateColour()
+        {
+            switch (hp)
             {
                 case 1:
-                    colour = Color.Red;
-                    break;
+                     return Color.Red;
+                    
                 case 2:
-                    colour = Color.Yellow;
-                    break;
+                    return Color.Yellow;
+                    
                 case 3:
-                    colour = Color.Green;
-                    break;
+                    return Color.Green;
+                   
                 case 4:
-                    colour = Color.Cyan;
-                    break;
+                    return Color.Cyan;
+                    
             }
+            return Color.Pink;
         }
     }
 }
