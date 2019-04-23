@@ -45,6 +45,9 @@ namespace BrickBreaker
                 case "GameScreen":
                     ns = new GameScreen();
                     break;
+                case "HighScreen":
+                    //ns = new GameScreen();
+                    break;
             }
             //centres on the screen
             ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);

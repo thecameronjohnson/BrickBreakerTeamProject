@@ -262,6 +262,7 @@ namespace BrickBreaker
         private void AndMethod()
         {
             //my method no touch
+
         }
        
 
@@ -286,23 +287,7 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                switch (b.hp)
-                {
-                    case 1:
-                        b.colour = Color.Red;
-                        break;
-                    case 2:
-                        b.colour = Color.Yellow;
-                        break;
-                    case 3:
-                        b.colour = Color.Green;
-                        break;
-                    case 4:
-                        b.colour = Color.Cyan;
-                        break;
-                }
-
-                SolidBrush blockBrush = new SolidBrush(b.colour);
+                SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
