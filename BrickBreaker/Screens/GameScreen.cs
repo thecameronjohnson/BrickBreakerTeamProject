@@ -25,7 +25,7 @@ namespace BrickBreaker
 
         // Game values
         string level, levelName;
-        int lives, score, scoreMult;
+        public static int lives, score, scoreMult;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
         Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
@@ -82,7 +82,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("1");
+            //LevelLoad("1");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
