@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Xml;
+using System.Threading;
 
 namespace BrickBreaker
 {
@@ -24,7 +25,7 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
-        int lives, score, scoreMult;
+        public static int lives, score, scoreMult;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
         Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
@@ -199,6 +200,9 @@ namespace BrickBreaker
                         b.xSpeed = 6;
                         b.ySpeed = 6;
                         b.size = 20;
+
+                        Refresh();
+                        Thread.Sleep(2000);
 
                         if (lives == 0)
                         {
