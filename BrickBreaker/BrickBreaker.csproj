@@ -150,7 +150,7 @@
     <None Include="Resources\blueBrick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Level2.xml">
+    <None Include="Resources\Level1.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -171,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\HighScores.xml" />
+    <None Include="Resources\Level2.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\purpbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
