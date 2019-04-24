@@ -2,79 +2,39 @@
 
 <levels>
 <level number ="1" name ="Level 1">
-  <brick x ="69" y ="47" hp ="1">
-    <x>69</x>
-    <y>47</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>107</x>
-    <y>47</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>69</x>
-    <y>90</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>107</x>
-    <y>90</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>69</x>
-    <y>137</y>
-    <hp>2</hp>
-  </brick>
-  <brick>
-    <x>107</x>
-    <y>137</y>
-    <hp>2</hp>
-  </brick>
-
-  <brick>
-    <x>530</x>
-    <y>47</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>608</x>
-    <y>47</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>530</x>
-    <y>90</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>608</x>
-    <y>90</y>
-    <hp>1</hp>
-  </brick>
-  <brick>
-    <x>530</x>
-    <y>137</y>
-    <hp>2</hp>
-  </brick>
-  <brick>
-    <x>608</x>
-    <y>137</y>
-    <hp>2</hp>
-  </brick>
-
-  <brick>
-    <x>302</x>
-    <y>181</y>
-    <hp>3</hp>
-  </brick>
-  <brick>
-    <x>386</x>
-    <y>181</y>
-    <hp>3</hp>
-  </brick>
+  <brick x ="69" y ="47" hp ="1"/>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </level>
+  <level number ="2" name ="John">
+    <brick x ="69" y ="47" hp ="1"/>
+    <brick x ="107" y ="47" hp ="1"/>
+    <brick x ="69" y ="90" hp ="1"/>
+    <brick x ="107" y ="90" hp ="1"/>
+    <brick x ="69" y ="130" hp ="2"/>
+    <brick x ="107" y ="108" hp ="2"/>
+    <brick x ="200" y ="200" hp ="4"/>
+    <brick x ="211" y ="211" hp ="5"/>
+    <brick x ="300" y ="47" hp ="2"/>
+    <brick x ="129" y ="47" hp ="1"/>
+    <brick x ="69" y ="147" hp ="1"/>
+    <brick x ="29" y ="27" hp ="1"/>
+    <brick x ="500" y ="47" hp ="1"/>
+    <brick x ="609" y ="47" hp ="3"/>
+  </level>
 </levels>
 
  
