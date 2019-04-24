@@ -170,6 +170,7 @@
     <None Include="Resources\Stars.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Resources\Level1.xml" />
     <Content Include="Resources\HighScores.xml" />
     <Compile Include="Resources\Level2.xml">
       <SubType>Designer</SubType>

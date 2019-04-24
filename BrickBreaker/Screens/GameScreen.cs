@@ -83,7 +83,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            //LevelLoad("1");
+            LevelLoad("1");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -170,7 +170,7 @@ namespace BrickBreaker
             if (escDown == true)
             {
                 gamePaused = !gamePaused;
-            }            
+            }
 
             // Move ball
             ball.Move();
@@ -179,7 +179,7 @@ namespace BrickBreaker
             ball.WallCollision(this);
 
             // Check for ball hitting bottom of screen
-            foreach(Ball b in ballList)
+            foreach (Ball b in ballList)
             {
                 if (ballList.Count() < 1)
                 {
@@ -189,7 +189,7 @@ namespace BrickBreaker
                     }
                 }
 
-                if(ballList.Count() == 1)
+                if (ballList.Count() == 1)
                 {
                     if (b.BottomCollision(this))
                     {
@@ -228,13 +228,13 @@ namespace BrickBreaker
 
                 ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
                 ballList.Add(ball);
-                
+
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
                     OnEnd();
                 }
-            } 
+            }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
@@ -250,7 +250,7 @@ namespace BrickBreaker
                     if (b.hp == 0)
                     {
                         blocks.Remove(b);
-                        score = score + 100*scoreMult;
+                        score = score + 100 * scoreMult;
                     }
 
                     if (blocks.Count == 0)
@@ -270,40 +270,24 @@ namespace BrickBreaker
         //Doesn't work yet as it doesn't actually grab values for x, y and hp.
         private void LevelLoad(string levelNo)
         {
-
-            XmlReader levelReader = XmlReader.Create("Resources/Levels.xml");
-            while (levelReader.Read())
+            XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
+            while (brickReader.Read())
             {
-                levelReader.ReadToFollowing("level");
-                level = levelReader.GetAttribute("number");
-                levelName = levelReader.GetAttribute("name");
+                Block b = new Block(0, 0, 0);
+                string x, y, hp;
+
+                brickReader.ReadToFollowing("brick");
+                x = brickReader.GetAttribute("x");
+                y = brickReader.GetAttribute("y");
+                hp = brickReader.GetAttribute("hp");
+
+                b.x = Convert.ToInt16(x);
+                b.y = Convert.ToInt16(y);
+                b.hp = Convert.ToInt16(hp);
+
+                blocks.Add(b);
             }
-            levelReader.Close();
-
-            if (level == levelNo)
-            {
-                XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
-                while (brickReader.Read())
-                {
-                    Block b = new Block(0, 0, 0);
-                    string x, y, hp;
-
-                    brickReader.ReadToFollowing("brick");
-                    x = brickReader.GetAttribute("x");
-                    y = brickReader.GetAttribute("y");
-                    hp = brickReader.GetAttribute("hp");
-
-                    b.x = Convert.ToInt16(x);
-                    b.y = Convert.ToInt16(y);
-                    b.hp = Convert.ToInt16(hp);
-
-                    blocks.Add(b);
-                }
-                brickReader.Close();
-            }
-
-
-
+            brickReader.Close();
         }
 
         public void OnEnd()
@@ -311,7 +295,7 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
-            
+
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
