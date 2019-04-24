@@ -171,9 +171,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\HighScores.xml" />
-    <None Include="Resources\Level2.xml">
+    <Compile Include="Resources\Level2.xml">
       <SubType>Designer</SubType>
-    </None>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <None Include="Resources\purpbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
