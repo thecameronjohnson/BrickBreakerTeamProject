@@ -271,6 +271,27 @@ namespace BrickBreaker
         private void LevelLoad(string levelNo)
         {
             XmlReader brickReader = XmlReader.Create("Resources/Level1.xml");
+
+            switch (Convert.ToInt16(levelNo))
+            {
+                case 1:
+                    brickReader = XmlReader.Create("Resources/Level1.xml");
+                    break;
+                case 2:
+                    brickReader = XmlReader.Create("Resources/Level2.xml");
+                    break;
+                case 3:
+                    brickReader = XmlReader.Create("Resources/Level3.xml");
+                    break;
+                case 4:
+                    brickReader = XmlReader.Create("Resources/Level4.xml");
+                    break;
+                default:
+                    brickReader = XmlReader.Create("Resources/Level1.xml");
+                    break;
+            }
+           
+
             while (brickReader.Read())
             {
                 Block b = new Block(0, 0, 0);
