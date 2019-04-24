@@ -69,6 +69,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Paddle.cs" />
+    <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\HighScreen.cs">
@@ -149,7 +150,9 @@
     <None Include="Resources\blueBrick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Levels.xml" />
+    <None Include="Resources\Levels.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button.png" />
