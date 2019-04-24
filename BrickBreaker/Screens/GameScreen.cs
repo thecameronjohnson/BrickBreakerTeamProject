@@ -285,13 +285,19 @@ namespace BrickBreaker
                 XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
                 while (brickReader.Read())
                 {
-                    Block b;
+                    Block b = new Block(0, 0, 0);
                     string x, y, hp;
 
                     brickReader.ReadToFollowing("brick");
                     x = brickReader.GetAttribute("x");
                     y = brickReader.GetAttribute("y");
                     hp = brickReader.GetAttribute("hp");
+
+                    b.x = Convert.ToInt16(x);
+                    b.y = Convert.ToInt16(y);
+                    b.hp = Convert.ToInt16(hp);
+
+                    blocks.Add(b);
                 }
                 brickReader.Close();
             }
