@@ -271,6 +271,7 @@ namespace BrickBreaker
         private void LevelLoad(string levelNo)
         {
             XmlReader brickReader = XmlReader.Create("Resources/Level1.xml");
+
             switch (Convert.ToInt16(levelNo))
             {
                 case 1:
@@ -290,6 +291,7 @@ namespace BrickBreaker
                     break;
             }
            
+
             while (brickReader.Read())
             {
                 Block b = new Block(0, 0, 0);
