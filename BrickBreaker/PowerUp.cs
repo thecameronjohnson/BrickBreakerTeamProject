@@ -16,13 +16,13 @@ namespace BrickBreaker
         // create a random number generator 
         Random randGen = new Random();
 
-        public PowerUp(int _x, int _y, int _pSpeed, int _size)
+        public PowerUp(int _x, int _y, int _pSpeed, int _size, Color _colour)
         {
             x = _x;
             y = _y;
             pSpeed = _pSpeed;
             size = _size;
-
+            colour = _colour;
         }
 
         public void PaddleCollision(Paddle p)
