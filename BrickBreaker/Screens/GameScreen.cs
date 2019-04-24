@@ -25,6 +25,7 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
+        string level, levelName;
         public static int lives, score, scoreMult;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
@@ -82,19 +83,19 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            
+            //LevelLoad("1");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
-            blocks.Clear();
-            int x = 10;
+            //blocks.Clear();
+            //int x = 10;
 
-            while (blocks.Count < 12)
-            {
-                x += 57;
-                Block b1 = new Block(x, 10, 2);
-                blocks.Add(b1);
-            }
+            //while (blocks.Count < 12)
+            //{
+            //    x += 57;
+            //    Block b1 = new Block(x, 10, 2);
+            //    blocks.Add(b1);
+            //}
 
             #endregion
 
@@ -265,12 +266,53 @@ namespace BrickBreaker
             //redraw the screen
             Refresh();
         }
-        private void AndMethod()
+
+        //Doesn't work yet as it doesn't actually grab values for x, y and hp.
+        private void LevelLoad(string levelNo)
         {
-            //my method no touch
+
+            XmlReader levelReader = XmlReader.Create("Resources/Levels.xml");
+            while (levelReader.Read())
+            {
+                levelReader.ReadToFollowing("level");
+                level = levelReader.GetAttribute("number");
+                if (level == levelNo)
+                {
+                    XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
+                    while (brickReader.Read())
+                    {
+                        string newX, newY, newHP;
+                        Block b = new Block(0, 0, 0);
+
+                        brickReader.ReadToFollowing("brick");
+                        newX = brickReader.GetAttribute("x");
+                        newY = brickReader.GetAttribute("y");
+                        newHP = brickReader.GetAttribute("hp");
+
+                        //brickReader.ReadToDescendant("x");
+                        //newX = brickReader.ReadString();
+
+                        //brickReader.ReadToNextSibling("y");
+                        //newY = brickReader.ReadString();
+
+                        //brickReader.ReadToNextSibling("hp");
+                        //newHP = brickReader.ReadString();
+
+                        b.x = Convert.ToInt16(newX);
+                        b.y = Convert.ToInt16(newY);
+                        b.hp = Convert.ToInt16(newHP);
+
+                        blocks.Add(b);
+                    }
+                    brickReader.Close();
+                }
+                levelName = levelReader.GetAttribute("name");
+                levelReader.Close();
+            }
+
+
 
         }
-       
 
         public void OnEnd()
         {

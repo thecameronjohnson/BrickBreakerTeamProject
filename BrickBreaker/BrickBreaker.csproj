@@ -132,7 +132,9 @@
     <None Include="Resources\blueBrick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Levels.xml" />
+    <None Include="Resources\Levels.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button.png" />
