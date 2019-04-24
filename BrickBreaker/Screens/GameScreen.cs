@@ -25,7 +25,6 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
-        string level, levelName;
         public static int lives, score, scoreMult;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
