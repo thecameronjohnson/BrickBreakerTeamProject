@@ -276,38 +276,24 @@ namespace BrickBreaker
             {
                 levelReader.ReadToFollowing("level");
                 level = levelReader.GetAttribute("number");
-                if (level == levelNo)
-                {
-                    XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
-                    while (brickReader.Read())
-                    {
-                        string newX, newY, newHP;
-                        Block b = new Block(0, 0, 0);
-
-                        brickReader.ReadToFollowing("brick");
-                        newX = brickReader.GetAttribute("x");
-                        newY = brickReader.GetAttribute("y");
-                        newHP = brickReader.GetAttribute("hp");
-
-                        //brickReader.ReadToDescendant("x");
-                        //newX = brickReader.ReadString();
-
-                        //brickReader.ReadToNextSibling("y");
-                        //newY = brickReader.ReadString();
-
-                        //brickReader.ReadToNextSibling("hp");
-                        //newHP = brickReader.ReadString();
-
-                        b.x = Convert.ToInt16(newX);
-                        b.y = Convert.ToInt16(newY);
-                        b.hp = Convert.ToInt16(newHP);
-
-                        blocks.Add(b);
-                    }
-                    brickReader.Close();
-                }
                 levelName = levelReader.GetAttribute("name");
-                levelReader.Close();
+            }
+            levelReader.Close();
+
+            if (level == levelNo)
+            {
+                XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
+                while (brickReader.Read())
+                {
+                    Block b;
+                    string x, y, hp;
+
+                    brickReader.ReadToFollowing("brick");
+                    x = brickReader.GetAttribute("x");
+                    y = brickReader.GetAttribute("y");
+                    hp = brickReader.GetAttribute("hp");
+                }
+                brickReader.Close();
             }
 
 
