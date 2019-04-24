@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Xml;
+using System.Threading;
 
 namespace BrickBreaker
 {
@@ -200,6 +201,9 @@ namespace BrickBreaker
                         b.xSpeed = 6;
                         b.ySpeed = 6;
                         b.size = 20;
+
+                        Refresh();
+                        Thread.Sleep(2000);
 
                         if (lives == 0)
                         {
