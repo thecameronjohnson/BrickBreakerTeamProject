@@ -276,11 +276,12 @@ namespace BrickBreaker
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
+            //MenuScreen ps = new MenuScreen();
+            Screens.HighScreen hs = new Screens.HighScreen();
             
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
 
-            form.Controls.Add(ps);
+            form.Controls.Add(hs);
             form.Controls.Remove(this);
         }
 
@@ -306,5 +307,8 @@ namespace BrickBreaker
             //draw lives
             e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
         }
+
     }
+
+
 }
