@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<levels>
 <level number ="1" name ="Level 1">
   <brick x ="69" y ="47" hp ="1"/>
   <brick x="107" y="47" hp="1"/>
@@ -17,23 +16,3 @@
   <brick x="302" y="181" hp="3"/>
   <brick x="386" y="181" hp="3"/>
 </level>
-  <level number ="2" name ="John">
-    <brick x ="69" y ="47" hp ="1"/>
-    <brick x ="107" y ="47" hp ="1"/>
-    <brick x ="69" y ="90" hp ="1"/>
-    <brick x ="107" y ="90" hp ="1"/>
-    <brick x ="69" y ="130" hp ="2"/>
-    <brick x ="107" y ="108" hp ="2"/>
-    <brick x ="200" y ="200" hp ="4"/>
-    <brick x ="211" y ="211" hp ="5"/>
-    <brick x ="300" y ="47" hp ="2"/>
-    <brick x ="129" y ="47" hp ="1"/>
-    <brick x ="69" y ="147" hp ="1"/>
-    <brick x ="29" y ="27" hp ="1"/>
-    <brick x ="500" y ="47" hp ="1"/>
-    <brick x ="609" y ="47" hp ="3"/>
-  </level>
-</levels>
-
- 
-       
