@@ -34,7 +34,22 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(blockRec))
             {
-                ySpeed *= -1;
+                if (ySpeed == -2)
+                {
+                    ySpeed = 2;
+                }
+                else if (ySpeed == -3)
+                {
+                    ySpeed = 3;
+                }
+                else if (ySpeed == -4)
+                {
+                    ySpeed = 4;
+                }
+                else
+                {
+                    ySpeed = 6;
+                }
             }
 
             return blockRec.IntersectsWith(ballRec);
@@ -100,17 +115,55 @@ namespace BrickBreaker
             // Collision with left wall
             if (x <= 0)
             {
-                xSpeed *= -1;
+                if (xSpeed == -6) //if xspeed is *6* while colliding, move to the right that amount
+                {
+                    xSpeed = 6;
+                }
+                else if (xSpeed == -7) //if xspeed is *7* while colliding, move to the right that amount
+                {
+                    xSpeed = 7;
+                }
+                else //if xspeed is *8* while colliding, move to the right that amount
+                {
+                    xSpeed = 8;
+                }
             }
+
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                xSpeed *= -1;
+                if (xSpeed == 6) //if xspeed is *6* while colliding, move to the left that amount
+                {
+                    xSpeed = -6;
+                }
+                else if (xSpeed == 7)
+                {
+                    xSpeed = -7;
+                }
+                else
+                {
+                    xSpeed = -8;
+                }
             }
             // Collision with top wall
             if (y <= 2)
             {
-                ySpeed *= -1;
+                if (ySpeed == -2) //if yspeed is *6* while colliding, move to the left that amount
+                {
+                    ySpeed = 2;
+                }
+                else if (xSpeed == -3)
+                {
+                    ySpeed = 3;
+                }
+                else if (xSpeed == -4)
+                {
+                    ySpeed = 4;
+                }
+                else
+                {
+                    ySpeed = 6;
+                }
             }
         }
 
