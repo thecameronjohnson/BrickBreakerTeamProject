@@ -324,12 +324,12 @@ namespace BrickBreaker
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            // Draws blocks
-            foreach (Block b in blocks)
-            {
-                SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
-            }
+             // Draws blocks
+             foreach (Block b in blocks)
+             {
+                 SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
+                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+             }
 
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
@@ -338,7 +338,7 @@ namespace BrickBreaker
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
 
             //draw lives
-            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
-        }
+            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);            
+        }        
     }
 }
