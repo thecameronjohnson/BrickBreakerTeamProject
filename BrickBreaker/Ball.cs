@@ -18,7 +18,7 @@ namespace BrickBreaker
             xSpeed = _xSpeed;
             ySpeed = _ySpeed;
             size = _ballSize;
-               
+
         }
 
         public void Move()
@@ -34,10 +34,25 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(blockRec))
             {
-                ySpeed *= -1;
+                if (ySpeed == -2)
+                {
+                    ySpeed = 2;
+                }
+                else if (ySpeed == -3)
+                {
+                    ySpeed = 3;
+                }
+                else if (ySpeed == -4)
+                {
+                    ySpeed = 4;
+                }
+                else
+                {
+                    ySpeed = 6;
+                }
             }
 
-            return blockRec.IntersectsWith(ballRec);         
+            return blockRec.IntersectsWith(ballRec);
         }
 
         public void PaddleCollision(Paddle p, bool pMovingLeft, bool pMovingRight)
@@ -47,9 +62,45 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                if (y + size >= p.y)
+                if (x < p.x + p.width / 2) // divide the paddle into 8 sections with different angles of ball launch
                 {
-                    ySpeed *= -1;
+                    ySpeed = -6;
+                    xSpeed = -6;
+                }
+                else if (x < p.x + p.width * 5 / 8)
+                {
+                    ySpeed = -6;
+                    xSpeed = 6;
+                }
+                else if (x <= p.x + p.width / 8)
+                {
+                    ySpeed = -2;
+                    xSpeed = -8;
+                }
+                else if (x < p.x + p.width / 4)
+                {
+                    ySpeed = -3;
+                    xSpeed = -7;
+                }
+                else if (x < p.x + p.width * 3 / 8)
+                {
+                    ySpeed = -4;
+                    xSpeed = -6;
+                }
+                else if (x < p.x + p.width * 3 / 4)
+                {
+                    ySpeed = -4;
+                    xSpeed = 6;
+                }
+                else if (x < p.x + p.width * 7 / 8)
+                {
+                    ySpeed = -3;
+                    xSpeed = 7;
+                }
+                else
+                {
+                    ySpeed = -2;
+                    xSpeed = 8;
                 }
 
                 if (pMovingLeft)
@@ -64,17 +115,55 @@ namespace BrickBreaker
             // Collision with left wall
             if (x <= 0)
             {
-                xSpeed *= -1;
+                if (xSpeed == -6) //if xspeed is *6* while colliding, move to the right that amount
+                {
+                    xSpeed = 6;
+                }
+                else if (xSpeed == -7) //if xspeed is *7* while colliding, move to the right that amount
+                {
+                    xSpeed = 7;
+                }
+                else //if xspeed is *8* while colliding, move to the right that amount
+                {
+                    xSpeed = 8;
+                }
             }
+
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                xSpeed *= -1;
+                if (xSpeed == 6) //if xspeed is *6* while colliding, move to the left that amount
+                {
+                    xSpeed = -6;
+                }
+                else if (xSpeed == 7)
+                {
+                    xSpeed = -7;
+                }
+                else
+                {
+                    xSpeed = -8;
+                }
             }
             // Collision with top wall
             if (y <= 2)
             {
-                ySpeed *= -1;
+                if (ySpeed == -2) //if yspeed is *6* while colliding, move to the left that amount
+                {
+                    ySpeed = 2;
+                }
+                else if (xSpeed == -3)
+                {
+                    ySpeed = 3;
+                }
+                else if (xSpeed == -4)
+                {
+                    ySpeed = 4;
+                }
+                else
+                {
+                    ySpeed = 6;
+                }
             }
         }
 
