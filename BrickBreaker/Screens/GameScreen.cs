@@ -44,6 +44,9 @@ namespace BrickBreaker
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
+        //Random number gen
+        Random randGen = new Random();
+        int powerValue;
 
         #endregion
 
@@ -83,7 +86,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("1");
+            LevelLoad("2");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -306,7 +309,11 @@ namespace BrickBreaker
                 b.y = Convert.ToInt16(y);
                 b.hp = Convert.ToInt16(hp);
 
-                blocks.Add(b);
+                if (b.hp != 0)
+                {
+                    blocks.Add(b);
+                }
+                
             }
             brickReader.Close();
         }
@@ -323,6 +330,10 @@ namespace BrickBreaker
             form.Controls.Remove(this);
         }
 
+        public void NumberGen()
+        {          
+            powerValue = randGen.Next(1, 5);
+        }
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
