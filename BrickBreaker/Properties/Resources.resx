@@ -425,10 +425,6 @@
         fqjXBrm8BQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Level2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Levels.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="purpBrick" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAZCAYAAABzVH1EAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
@@ -19046,9 +19042,6 @@
         Vlu52nJzW7qCeXLbuYK0MxLwFKjNjpxT43EfczN2zWc9NFab8LY1Vnzr/wMVZEbnFowrygAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="Level1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Resources\Level1.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ball" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

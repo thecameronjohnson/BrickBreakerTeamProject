@@ -150,11 +150,6 @@
     <None Include="Resources\blueBrick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Level1.xml">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button.png" />
   </ItemGroup>
   <ItemGroup>
@@ -172,13 +167,12 @@
   <ItemGroup>
     <None Include="Resources\Player1.png" />
     <None Include="Resources\Player2.png" />
-    <None Include="bin\Debug\Resources\Level1.xml" />
     <None Include="Resources\ball.png" />
     <Content Include="Resources\HighScores.xml" />
-    <None Include="Resources\Level2.xml">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Resources\purpbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

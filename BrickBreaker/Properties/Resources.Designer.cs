@@ -101,57 +101,6 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///
-        ///&lt;levels&gt;
-        ///&lt;level number =&quot;1&quot; name =&quot;Level 1&quot;&gt;
-        ///  &lt;brick x =&quot;69&quot; y =&quot;47&quot; hp =&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;107&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///
-        ///  &lt;brick x=&quot;530&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///
-        ///  &lt; [rest of string....
-        /// </summary>
-        internal static string Level1 {
-            get {
-                return ResourceManager.GetString("Level1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///
-        ///&lt;level number =&quot;1&quot; name =&quot;Level 1&quot;&gt;
-        ///  &lt;brick x =&quot;69&quot; y =&quot;47&quot; hp =&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;107&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;302&quot;  [rest of st....
-        /// </summary>
-        internal static string Level2 {
-            get {
-                return ResourceManager.GetString("Level2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Player1 {
