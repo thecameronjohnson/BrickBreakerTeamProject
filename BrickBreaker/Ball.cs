@@ -37,19 +37,22 @@ namespace BrickBreaker
                 if (ySpeed == -2)
                 {
                     ySpeed = 2;
-                    xSpeed *= -1;
+                    //xSpeed *= -1;
                 }
-                else if (xSpeed == -3)
+                else if (ySpeed == -3)
                 {
                     ySpeed = 3;
+                    //xSpeed *= -1;
                 }
-                else if (xSpeed == -4)
+                else if (ySpeed == -4)
                 {
                     ySpeed = 4;
+                    //xSpeed *= -1;
                 }
                 else
                 {
                     ySpeed = 6;
+                    //xSpeed *= -1;
                 }
             }
 
