@@ -171,13 +171,15 @@
     <None Include="Resources\Stars.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Resources\Level1.xml" />
-    <Content Include="Resources\HighScores.xml" />
     <Compile Include="Resources\Level2.xml">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Content Include="Resources\HighScores.xml" />
     <None Include="Resources\purpbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
