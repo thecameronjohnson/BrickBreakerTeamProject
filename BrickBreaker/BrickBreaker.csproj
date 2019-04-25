@@ -69,6 +69,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Paddle.cs" />
+    <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\HighScreen.cs">
@@ -149,7 +150,9 @@
     <None Include="Resources\blueBrick.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Levels.xml" />
+    <None Include="Resources\Level1.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button.png" />
@@ -167,7 +170,12 @@
     <None Include="Resources\Stars.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\Resources\Level1.xml" />
     <Content Include="Resources\HighScores.xml" />
+    <None Include="Resources\Level2.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\purpbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -92,40 +92,34 @@ namespace BrickBreaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///.
+        /// </summary>
+        internal static string Level1 {
+            get {
+                return ResourceManager.GetString("Level1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///
         ///&lt;levels&gt;
         ///&lt;level number =&quot;1&quot; name =&quot;Level 1&quot;&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;69&lt;/x&gt;
-        ///    &lt;y&gt;47&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;107&lt;/x&gt;
-        ///    &lt;y&gt;47&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;69&lt;/x&gt;
-        ///    &lt;y&gt;90&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;107&lt;/x&gt;
-        ///    &lt;y&gt;90&lt;/y&gt;
-        ///    &lt;hp&gt;1&lt;/hp&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;69&lt;/x&gt;
-        ///    &lt;y&gt;137&lt;/y&gt;
-        ///    &lt;hp&gt;2&lt;/hp&gt;
-        ///  &lt;/brick&gt;
-        ///  &lt;brick&gt;
-        ///    &lt;x&gt;107&lt;/x&gt;
-        ///    &lt;y&gt;137&lt;/y&gt;
-        ///    &lt;hp&gt;2&lt;/hp&gt;
-        ///  &lt;/brick&gt;
+        ///  &lt;brick x =&quot;69&quot; y =&quot;47&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x=&quot;107&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick  x=&quot;69&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick  x=&quot;107&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick  x=&quot;69&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
+        ///  &lt;brick  x=&quot;107&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
         ///
-        ///  &lt;b [rest of string was truncated]&quot;;.
+        ///  &lt;brick x=&quot;530&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick x=&quot;608&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick x=&quot;530&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick x=&quot;608&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
+        ///  &lt;brick x=&quot;530&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
+        ///  &lt;brick x=&quot;608&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
+        ///
+        ///  &lt; [rest of string....
         /// </summary>
         internal static string Levels {
             get {
@@ -139,6 +133,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap purpBrick {
             get {
                 object obj = ResourceManager.GetObject("purpBrick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap purpbutton {
+            get {
+                object obj = ResourceManager.GetObject("purpbutton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
