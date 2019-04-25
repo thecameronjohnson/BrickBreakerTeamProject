@@ -10,26 +10,25 @@ namespace BrickBreaker
     class PowerUp
     {
         public int powerValue;
-        public int x, y, pSpeed, size;
+        public int x, y, powerSpeed, size;
         public Color colour;
 
         // create a random number generator 
-        Random randGen = new Random();
+       
 
-        public PowerUp(int _x, int _y, int _pSpeed, int _size, Color _colour)
+        public PowerUp(int _x, int _y, int _powerSpeed, int _size, int _powerValue)
         {
             x = _x;
             y = _y;
-            pSpeed = _pSpeed;
+            powerSpeed = _powerSpeed;
             size = _size;
-            colour = _colour;
+            powerValue = _powerValue;
         }
 
         public void PaddleCollision(Paddle p)
         {
             Rectangle powerUpRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
-            powerValue = randGen.Next(1, 5);
 
             if (powerUpRec.IntersectsWith(paddleRec))
             {
