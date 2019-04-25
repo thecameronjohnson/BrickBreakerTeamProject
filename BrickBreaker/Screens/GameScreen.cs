@@ -27,6 +27,7 @@ namespace BrickBreaker
         // Game values
         string level, levelName;
         public static int lives, score, scoreMult;
+        public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
         Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
@@ -39,11 +40,15 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
         List<Ball> ballList = new List<Ball>();
+        List<PowerUp> powers = new List<PowerUp>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
+        //Random number gen
+        Random randGen = new Random();
+        int powerValue;
 
         #endregion
 
@@ -58,7 +63,7 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
-
+            score = 0;
             scoreMult = 1;
 
             //set all button presses to false.
@@ -83,7 +88,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("1");
+            LevelLoad("2");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -246,11 +251,26 @@ namespace BrickBreaker
                 {
                     --b.hp;
                     //blocks.Remove(b);
+                    int blockX = b.x;
+                    int blockY = b.y + b.height;
+                    int blockSize = b.width;
 
                     if (b.hp == 0)
                     {
                         blocks.Remove(b);
-                        score = score + 100 * scoreMult;
+
+                        score = score + 100*scoreMult;
+                        double d = score / 500;
+                        double scoreint = Math.Round(d);
+                        
+                        if (scoreint > lastPower)
+                        {
+                            lastPower = scoreint;
+
+                            //power = new PowerUp(blockSize / 2 + blockX, blockY, );
+                            //powers.Add(power);
+                        }                        
+
                     }
 
                     if (blocks.Count == 0)
@@ -306,7 +326,11 @@ namespace BrickBreaker
                 b.y = Convert.ToInt16(y);
                 b.hp = Convert.ToInt16(hp);
 
-                blocks.Add(b);
+                if (b.hp != 0)
+                {
+                    blocks.Add(b);
+                }
+                
             }
             brickReader.Close();
         }
@@ -323,6 +347,10 @@ namespace BrickBreaker
             form.Controls.Remove(this);
         }
 
+        public void NumberGen()
+        {          
+            powerValue = randGen.Next(1, 5);
+        }
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
