@@ -27,5 +27,12 @@ namespace BrickBreaker
             // Goes to the game screen  
             Form1.ChangeScreen(this,"GameScreen");
         }
+
+        private void lorenAllignment()
+        {
+            playButton.Location = new Point((this.Width - playButton.Width) / 2, 250);
+            exitButton.Location = new Point((this.Width - exitButton.Width) / 2, 370);
+            title.Location = new Point((this.Width - title.Width) / 2, 89);
+        }
     }
 }
