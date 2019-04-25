@@ -63,6 +63,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ball {
+            get {
+                object obj = ResourceManager.GetObject("ball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blueBrick {
             get {
                 object obj = ResourceManager.GetObject("blueBrick", resourceCulture);
@@ -138,6 +148,26 @@ namespace BrickBreaker.Properties {
         internal static string Level2 {
             get {
                 return ResourceManager.GetString("Level2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player1 {
+            get {
+                object obj = ResourceManager.GetObject("Player1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player2 {
+            get {
+                object obj = ResourceManager.GetObject("Player2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
