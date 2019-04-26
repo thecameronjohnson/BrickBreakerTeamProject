@@ -30,6 +30,7 @@
         {
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // playButton
@@ -42,8 +43,8 @@
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playButton.ForeColor = System.Drawing.Color.Cyan;
-            this.playButton.Location = new System.Drawing.Point(207, 193);
+            this.playButton.ForeColor = System.Drawing.Color.Aqua;
+            this.playButton.Location = new System.Drawing.Point(307, 247);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(181, 78);
             this.playButton.TabIndex = 0;
@@ -60,13 +61,27 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Cyan;
-            this.exitButton.Location = new System.Drawing.Point(207, 279);
+            this.exitButton.Location = new System.Drawing.Point(307, 371);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(181, 78);
             this.exitButton.TabIndex = 1;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // title
+            // 
+            this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.title.AutoSize = true;
+            this.title.BackColor = System.Drawing.Color.Transparent;
+            this.title.Font = new System.Drawing.Font("OCR A Std", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.Aqua;
+            this.title.Location = new System.Drawing.Point(87, 89);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(653, 68);
+            this.title.TabIndex = 2;
+            this.title.Text = "Brick Breaker";
+            this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MenuScreen
             // 
@@ -75,12 +90,14 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Controls.Add(this.title);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
             this.DoubleBuffered = true;
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(800, 550);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -88,5 +105,6 @@
 
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Label title;
     }
 }

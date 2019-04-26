@@ -27,6 +27,7 @@ namespace BrickBreaker
         // Game values
         string level, levelName;
         public static int lives, score, scoreMult;
+        public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
         Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
@@ -39,6 +40,7 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
         List<Ball> ballList = new List<Ball>();
+        List<PowerUp> powers = new List<PowerUp>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -61,7 +63,7 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
-
+            score = 0;
             scoreMult = 1;
 
             //set all button presses to false.
@@ -86,7 +88,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            //LevelLoad("1");
+            LevelLoad("2");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -173,7 +175,7 @@ namespace BrickBreaker
             if (escDown == true)
             {
                 gamePaused = !gamePaused;
-            }            
+            }
 
             // Move ball
             ball.Move();
@@ -182,7 +184,7 @@ namespace BrickBreaker
             ball.WallCollision(this);
 
             // Check for ball hitting bottom of screen
-            foreach(Ball b in ballList)
+            foreach (Ball b in ballList)
             {
                 if (ballList.Count() < 1)
                 {
@@ -192,7 +194,7 @@ namespace BrickBreaker
                     }
                 }
 
-                if(ballList.Count() == 1)
+                if (ballList.Count() == 1)
                 {
                     if (b.BottomCollision(this))
                     {
@@ -231,13 +233,13 @@ namespace BrickBreaker
 
                 ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
                 ballList.Add(ball);
-                
+
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
                     OnEnd();
                 }
-            } 
+            }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
@@ -249,11 +251,26 @@ namespace BrickBreaker
                 {
                     --b.hp;
                     //blocks.Remove(b);
+                    int blockX = b.x;
+                    int blockY = b.y + b.height;
+                    int blockSize = b.width;
 
                     if (b.hp == 0)
                     {
                         blocks.Remove(b);
+
                         score = score + 100*scoreMult;
+                        double d = score / 500;
+                        double scoreint = Math.Round(d);
+                        
+                        if (scoreint > lastPower)
+                        {
+                            lastPower = scoreint;
+
+                            //power = new PowerUp(blockSize / 2 + blockX, blockY, );
+                            //powers.Add(power);
+                        }                        
+
                     }
 
                     if (blocks.Count == 0)
@@ -273,48 +290,49 @@ namespace BrickBreaker
         //Doesn't work yet as it doesn't actually grab values for x, y and hp.
         private void LevelLoad(string levelNo)
         {
+            XmlReader brickReader = XmlReader.Create("Resources/Level1.xml");
 
-            XmlReader levelReader = XmlReader.Create("Resources/Levels.xml");
-            while (levelReader.Read())
+            switch (Convert.ToInt16(levelNo))
             {
-                levelReader.ReadToFollowing("level");
-                level = levelReader.GetAttribute("number");
-                if (level == levelNo)
-                {
-                    XmlReader brickReader = XmlReader.Create("Resources/Levels.xml");
-                    while (brickReader.Read())
-                    {
-                        string newX, newY, newHP;
-                        Block b = new Block(0, 0, 0);
-
-                        brickReader.ReadToFollowing("brick");
-                        newX = brickReader.GetAttribute("x");
-                        newY = brickReader.GetAttribute("y");
-                        newHP = brickReader.GetAttribute("hp");
-
-                        //brickReader.ReadToDescendant("x");
-                        //newX = brickReader.ReadString();
-
-                        //brickReader.ReadToNextSibling("y");
-                        //newY = brickReader.ReadString();
-
-                        //brickReader.ReadToNextSibling("hp");
-                        //newHP = brickReader.ReadString();
-
-                        b.x = Convert.ToInt16(newX);
-                        b.y = Convert.ToInt16(newY);
-                        b.hp = Convert.ToInt16(newHP);
-
-                        blocks.Add(b);
-                    }
-                    brickReader.Close();
-                }
-                levelName = levelReader.GetAttribute("name");
-                levelReader.Close();
+                case 1:
+                    brickReader = XmlReader.Create("Resources/Level1.xml");
+                    break;
+                case 2:
+                    brickReader = XmlReader.Create("Resources/Level2.xml");
+                    break;
+                case 3:
+                    brickReader = XmlReader.Create("Resources/Level3.xml");
+                    break;
+                case 4:
+                    brickReader = XmlReader.Create("Resources/Level4.xml");
+                    break;
+                default:
+                    brickReader = XmlReader.Create("Resources/Level1.xml");
+                    break;
             }
+           
 
+            while (brickReader.Read())
+            {
+                Block b = new Block(0, 0, 0);
+                string x, y, hp;
 
+                brickReader.ReadToFollowing("brick");
+                x = brickReader.GetAttribute("x");
+                y = brickReader.GetAttribute("y");
+                hp = brickReader.GetAttribute("hp");
 
+                b.x = Convert.ToInt16(x);
+                b.y = Convert.ToInt16(y);
+                b.hp = Convert.ToInt16(hp);
+
+                if (b.hp != 0)
+                {
+                    blocks.Add(b);
+                }
+                
+            }
+            brickReader.Close();
         }
 
         public void OnEnd()
@@ -322,7 +340,7 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
-            
+
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
