@@ -170,7 +170,8 @@
     <EmbeddedResource Include="bin\Debug\Resources\Level1.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include  <EmbeddedResource Include="bin\Debug\Resources\Level2.xml">
+    <None Include="Resources\ball.png" />
+	 <EmbeddedResource Include="bin\Debug\Resources\Level2.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="bin\Debug\Resources\Level3.xml">
@@ -197,12 +198,11 @@
     <EmbeddedResource Include="bin\Debug\Resources\Level10.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="Resources\HighScores.xml" />="Resources\ball.png" />
+    
     <EmbeddedResource Include="Resources\HighScores.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    
-	<None Include="Resources\purpbutton.png" />
+    <None Include="Resources\purpbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
