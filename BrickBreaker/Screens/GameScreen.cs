@@ -25,6 +25,7 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
+
         string level, levelName;
         public static int lives, score, scoreMult;
         public static double lastPower = 0;
@@ -321,12 +322,16 @@ namespace BrickBreaker
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
 
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            //MenuScreen ps = new MenuScreen();
+            Screens.HighScreen hs = new Screens.HighScreen();
 
-            form.Controls.Add(ps);
+            hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
+
+
+            form.Controls.Add(hs);
             form.Controls.Remove(this);
+
         }
 
         public void NumberGen()
@@ -369,6 +374,9 @@ namespace BrickBreaker
 
             //draw lives
             e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);            
-        }        
+        }   
+        
     }
+
+
 }
