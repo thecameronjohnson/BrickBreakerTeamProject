@@ -336,32 +336,33 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-                //Draw Paddle
-                e.Graphics.DrawImage(Properties.Resources.Player1, paddle.x, paddle.y);
+            //Draw Paddle
+            e.Graphics.DrawImage(Properties.Resources.Player1, paddle.x, paddle.y);
 
-                //Draw Ball
-                e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y);
-
-                //Draw bricks 
-                foreach (Block b in blocks)
-                {
-
-                }
+            //Draw Ball
+            e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y);           
             
 
-            // Draws paddle            
-            paddleBrush.Color = paddle.colour;
-            e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
-
-             // Draws blocks
-             foreach (Block b in blocks)
-             {
-                 SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
-                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
-             }
-
-            // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            // Draws blocks
+            foreach (Block b in blocks)
+            {
+                if (b.hp == 1)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.Green_Brick, b.x, b.y);
+                }
+                else if (b.hp == 2)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y);
+                }
+                else if (b.hp == 3)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.purpBrick, b.x, b.y);
+                }
+                else if (b.hp == 4)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y);
+                }
+            }           
 
             //draws score
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
