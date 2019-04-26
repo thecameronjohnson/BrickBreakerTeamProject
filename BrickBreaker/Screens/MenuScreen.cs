@@ -24,15 +24,15 @@ namespace BrickBreaker
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            // Goes to the game screen
-            GameScreen gs = new GameScreen();
-            Form form = this.FindForm();
-
-            form.Controls.Add(gs);
-            form.Controls.Remove(this);
-
-            gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
+            // Goes to the game screen  
+            Form1.ChangeScreen(this,"GameScreen");
         }
 
+        private void lorenAllignment()
+        {
+            playButton.Location = new Point((this.Width - playButton.Width) / 2, 250);
+            exitButton.Location = new Point((this.Width - exitButton.Width) / 2, 370);
+            title.Location = new Point((this.Width - title.Width) / 2, 89);
+        }
     }
 }
