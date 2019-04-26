@@ -88,7 +88,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("2");
+            LevelLoad("1");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -334,7 +334,7 @@ namespace BrickBreaker
             }
             brickReader.Close();
         }
-
+        
         public void OnEnd()
         {
             // Goes to the game over screen
@@ -351,9 +351,23 @@ namespace BrickBreaker
         {          
             powerValue = randGen.Next(1, 5);
         }
+
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            // Draws paddle
+                //Draw Paddle
+                e.Graphics.DrawImage(Properties.Resources.Player1, paddle.x, paddle.y);
+
+                //Draw Ball
+                e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y);
+
+                //Draw bricks 
+                foreach (Block b in blocks)
+                {
+
+                }
+            
+
+            // Draws paddle            
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 

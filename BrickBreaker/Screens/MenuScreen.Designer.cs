@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
+            this.menuTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // playButton
@@ -83,6 +85,12 @@
             this.title.Text = "Brick Breaker";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // menuTimer
+            // 
+            this.menuTimer.Enabled = true;
+            this.menuTimer.Interval = 1;
+            this.menuTimer.Tick += new System.EventHandler(this.menuTimer_Tick);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,6 +104,8 @@
             this.DoubleBuffered = true;
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(800, 550);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MenuScreen_KeyUp);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MenuScreen_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,5 +116,6 @@
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Timer menuTimer;
     }
 }
