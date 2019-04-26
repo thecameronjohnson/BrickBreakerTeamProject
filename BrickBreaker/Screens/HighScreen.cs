@@ -16,5 +16,21 @@ namespace BrickBreaker.Screens
         {
             InitializeComponent();
         }
+
+        private void HighScreen_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Form form = this.FindForm();
+            MenuScreen ms = new MenuScreen();
+
+            ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
+
+            form.Controls.Add(ms);
+            form.Controls.Remove(this);
+        }
     }
 }
