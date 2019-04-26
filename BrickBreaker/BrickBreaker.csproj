@@ -169,7 +169,9 @@
     <None Include="Resources\Player2.png" />
     <None Include="bin\Debug\Resources\Level1.xml" />
     <None Include="Resources\ball.png" />
-    <Content Include="Resources\HighScores.xml" />
+    <EmbeddedResource Include="Resources\HighScores.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\purpbutton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
