@@ -167,8 +167,37 @@
   <ItemGroup>
     <None Include="Resources\Player1.png" />
     <None Include="Resources\Player2.png" />
-    <None Include="bin\Debug\Resources\Level1.xml" />
+    <EmbeddedResource Include="bin\Debug\Resources\Level1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\ball.png" />
+    <EmbeddedResource Include="bin\Debug\Resources\Level2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level4.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level5.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level6.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level7.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level8.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level9.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bin\Debug\Resources\Level10.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Resources\HighScores.xml" />
     <None Include="Resources\purpbutton.png" />
   </ItemGroup>
