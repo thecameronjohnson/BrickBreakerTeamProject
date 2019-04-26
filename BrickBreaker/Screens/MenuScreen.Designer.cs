@@ -36,7 +36,7 @@
             // playButton
             // 
             this.playButton.BackColor = System.Drawing.Color.Transparent;
-           // this.playButton.BackgroundImage = global::BrickBreaker.Properties.Resources.button;
+            this.playButton.BackgroundImage = global::BrickBreaker.Properties.Resources.button;
             this.playButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.playButton.FlatAppearance.BorderSize = 0;
             this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -55,7 +55,7 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.Transparent;
-           // this.exitButton.BackgroundImage = global::BrickBreaker.Properties.Resources.button;
+            this.exitButton.BackgroundImage = global::BrickBreaker.Properties.Resources.button;
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.exitButton.FlatAppearance.BorderSize = 0;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -88,7 +88,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-         //   this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
+            this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Controls.Add(this.title);
             this.Controls.Add(this.exitButton);
