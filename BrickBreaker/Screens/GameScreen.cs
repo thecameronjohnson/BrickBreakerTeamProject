@@ -88,7 +88,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("2");
+            LevelLoad("1");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -287,7 +287,7 @@ namespace BrickBreaker
             Refresh();
         }
 
-        //Doesn't work yet as it doesn't actually grab values for x, y and hp.
+
         private void LevelLoad(string levelNo)
         {
             XmlReader brickReader = XmlReader.Create("Resources/Level1.xml");
