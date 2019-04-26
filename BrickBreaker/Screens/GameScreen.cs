@@ -287,7 +287,7 @@ namespace BrickBreaker
             Refresh();
         }
 
-        //Doesn't work yet as it doesn't actually grab values for x, y and hp.
+
         private void LevelLoad(string levelNo)
         {
             XmlReader brickReader = XmlReader.Create("Resources/Level1.xml");
