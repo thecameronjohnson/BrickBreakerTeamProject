@@ -53,7 +53,7 @@ namespace BrickBreaker
         //move the power up down the screen
         public void Move()
         {
-            y = y - pSpeed;
+            y = y - powerSpeed;
         }
     }
 }
