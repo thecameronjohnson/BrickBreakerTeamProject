@@ -64,13 +64,13 @@ namespace BrickBreaker
             {
                 if (x < p.x + p.width / 2) // divide the paddle into 8 sections with different angles of ball launch
                 {
-                    ySpeed = -6;
-                    xSpeed = -6;
+                    ySpeed = -5;
+                    xSpeed = -5;
                 }
                 else if (x < p.x + p.width * 5 / 8)
                 {
-                    ySpeed = -6;
-                    xSpeed = 6;
+                    ySpeed = -5;
+                    xSpeed = 5;
                 }
                 else if (x <= p.x + p.width / 8)
                 {
