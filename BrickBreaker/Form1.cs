@@ -54,7 +54,6 @@ namespace BrickBreaker
            
             f.Controls.Add(ns);
             ns.Focus();
-            
         }
     }
 }
