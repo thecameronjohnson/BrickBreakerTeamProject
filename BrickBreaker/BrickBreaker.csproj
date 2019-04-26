@@ -165,21 +165,15 @@
     <None Include="Resources\Stars.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Level1.xml" />
     <None Include="Resources\Player1.png" />
     <None Include="Resources\Player2.png" />
-    <Content Include="bin\Debug\Resources\Level1.xml" />
     <None Include="Resources\ball.png" />
-    <Content Include="bin\Debug\Resources\Level2.xml" />
-    <Content Include="bin\Debug\Resources\Level3.xml" />
-    <Content Include="bin\Debug\Resources\Level4.xml" />
-    <Content Include="bin\Debug\Resources\Level5.xml" />
-    <Content Include="bin\Debug\Resources\Level6.xml" />
-    <Content Include="bin\Debug\Resources\Level7.xml" />
-    <Content Include="bin\Debug\Resources\Level8.xml" />
-    <Content Include="bin\Debug\Resources\Level9.xml" />
-    <Content Include="bin\Debug\Resources\Level10.xml" />
     <Content Include="Resources\HighScores.xml" />
     <None Include="Resources\purpbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
