@@ -104,119 +104,12 @@ namespace BrickBreaker.Properties {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;level&gt;
         ///  
-        ///&lt;/level&gt;.
+        ///&lt;/level&gt;
+        ///.
         /// </summary>
         internal static string Level1 {
             get {
                 return ResourceManager.GetString("Level1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level10 {
-            get {
-                return ResourceManager.GetString("Level10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level2 {
-            get {
-                return ResourceManager.GetString("Level2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level3 {
-            get {
-                return ResourceManager.GetString("Level3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level4 {
-            get {
-                return ResourceManager.GetString("Level4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level5 {
-            get {
-                return ResourceManager.GetString("Level5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level6 {
-            get {
-                return ResourceManager.GetString("Level6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level7 {
-            get {
-                return ResourceManager.GetString("Level7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level8 {
-            get {
-                return ResourceManager.GetString("Level8", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;.
-        /// </summary>
-        internal static string Level9 {
-            get {
-                return ResourceManager.GetString("Level9", resourceCulture);
             }
         }
         
