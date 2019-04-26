@@ -102,24 +102,9 @@ namespace BrickBreaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///
-        ///&lt;levels&gt;
-        ///&lt;level number =&quot;1&quot; name =&quot;Level 1&quot;&gt;
-        ///  &lt;brick x =&quot;69&quot; y =&quot;47&quot; hp =&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;107&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///
-        ///  &lt;brick x=&quot;530&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///
-        ///  &lt; [rest of string....
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
         /// </summary>
         internal static string Level1 {
             get {
@@ -129,25 +114,109 @@ namespace BrickBreaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///
-        ///&lt;level number =&quot;1&quot; name =&quot;Level 1&quot;&gt;
-        ///  &lt;brick x =&quot;69&quot; y =&quot;47&quot; hp =&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;107&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick  x=&quot;69&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick  x=&quot;107&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;47&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;90&quot; hp=&quot;1&quot;/&gt;
-        ///  &lt;brick x=&quot;530&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;608&quot; y=&quot;137&quot; hp=&quot;2&quot;/&gt;
-        ///  &lt;brick x=&quot;302&quot;  [rest of st....
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level10 {
+            get {
+                return ResourceManager.GetString("Level10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
         /// </summary>
         internal static string Level2 {
             get {
                 return ResourceManager.GetString("Level2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level3 {
+            get {
+                return ResourceManager.GetString("Level3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level4 {
+            get {
+                return ResourceManager.GetString("Level4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level5 {
+            get {
+                return ResourceManager.GetString("Level5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level6 {
+            get {
+                return ResourceManager.GetString("Level6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level7 {
+            get {
+                return ResourceManager.GetString("Level7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level8 {
+            get {
+                return ResourceManager.GetString("Level8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level&gt;
+        ///  
+        ///&lt;/level&gt;.
+        /// </summary>
+        internal static string Level9 {
+            get {
+                return ResourceManager.GetString("Level9", resourceCulture);
             }
         }
         
