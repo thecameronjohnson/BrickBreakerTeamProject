@@ -322,10 +322,8 @@ namespace BrickBreaker
         }
 
         public void OnEnd()
-        {
-            // Goes to the game over screen
-            Form form = this.FindForm();
 
+        {    
             //MenuScreen ps = new MenuScreen();
             Form1.ChangeScreen(this, "HighScreen");
 
