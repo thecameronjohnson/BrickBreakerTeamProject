@@ -174,11 +174,18 @@
     <None Include="Resources\Player1.png" />
     <None Include="Resources\Player2.png" />
     <None Include="Resources\ball.png" />
-    <Content Include="Resources\HighScores.xml" />
+    <EmbeddedResource Include="Resources\HighScores.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\purpbutton.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

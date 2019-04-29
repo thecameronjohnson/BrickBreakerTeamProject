@@ -141,7 +141,7 @@ namespace BrickBreaker
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            //player 1 button releases
+            //player 1 button release
             switch (e.KeyCode)
             {
                 case Keys.Left:
