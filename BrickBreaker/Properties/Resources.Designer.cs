@@ -125,10 +125,21 @@ namespace BrickBreaker.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level&gt;
-        ///  
-        ///&lt;/level&gt;
-        ///.
+        ///&lt;level number=&quot;2&quot; name=&quot;&quot;&gt;
+        ///  &lt;brick x =&quot;12&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;68&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;124&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;12&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;180&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;236&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///
+        ///  &lt;brick x =&quot;523&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;579&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;635&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;691&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;747&quot; y =&quot;409&quot; hp =&quot;1&quot;/&gt;
+        ///
+        ///  &lt;brick x =&quot;303&quot; y =&quot;286 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level2 {
             get {
