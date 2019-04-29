@@ -29,6 +29,7 @@ namespace BrickBreaker
         int currentLevel = 1;
         string level, levelName;
         public static int lives, score, scoreMult;
+        public static int powerupSpeed = 5;
         public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
@@ -212,13 +213,14 @@ namespace BrickBreaker
                         b.size = 20;
 
                         Refresh();
-                        Thread.Sleep(2000);
+                        
 
                         if (lives == 0)
                         {
                             gameTimer.Enabled = false;
                             OnEnd();
                         }
+                        Thread.Sleep(2000);
                     }
                 }
             }
@@ -270,9 +272,11 @@ namespace BrickBreaker
                         if (scoreint > lastPower)
                         {
                             lastPower = scoreint;
+                            NumberGen();
+                            int powertype = powerValue;
 
-                            //power = new PowerUp(blockSize / 2 + blockX, blockY, );
-                            //powers.Add(power);
+                            PowerUp power = new PowerUp(blockSize / 2 + blockX, blockY, powerupSpeed, 15, powertype);
+                            powers.Add(power);
                         }                        
 
                     }
@@ -335,6 +339,7 @@ namespace BrickBreaker
         {          
             powerValue = randGen.Next(1, 5);
         }
+
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             // Draws paddle
@@ -346,6 +351,13 @@ namespace BrickBreaker
             {
                 SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
                 e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+            }
+
+            // Draws powerups
+            foreach (PowerUp p in powers)
+            {
+                SolidBrush powerBrush = new SolidBrush(p.UpdateColour());
+                e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
             }
 
             // Draws ball
