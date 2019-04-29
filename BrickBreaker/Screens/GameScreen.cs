@@ -25,6 +25,7 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
+
         string level, levelName;
         public static int lives, score, scoreMult;
         public static double lastPower = 0;
@@ -140,7 +141,7 @@ namespace BrickBreaker
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            //player 1 button releases
+            //player 1 button release
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -287,29 +288,11 @@ namespace BrickBreaker
             Refresh();
         }
 
-        //Doesn't work yet as it doesn't actually grab values for x, y and hp.
+
         private void LevelLoad(string levelNo)
         {
-            XmlReader brickReader = XmlReader.Create("Resources/Level1.xml");
-
-            switch (Convert.ToInt16(levelNo))
-            {
-                case 1:
-                    brickReader = XmlReader.Create("Resources/Level1.xml");
-                    break;
-                case 2:
-                    brickReader = XmlReader.Create("Resources/Level2.xml");
-                    break;
-                case 3:
-                    brickReader = XmlReader.Create("Resources/Level3.xml");
-                    break;
-                case 4:
-                    brickReader = XmlReader.Create("Resources/Level4.xml");
-                    break;
-                default:
-                    brickReader = XmlReader.Create("Resources/Level1.xml");
-                    break;
-            }
+            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");
+            
            
 
             while (brickReader.Read())
@@ -339,12 +322,16 @@ namespace BrickBreaker
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
+            
+            //MenuScreen ps = new MenuScreen();
+            Screens.HighScreen hs = new Screens.HighScreen();
+            
+            hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
 
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
-            form.Controls.Add(ps);
+            form.Controls.Add(hs);
             form.Controls.Remove(this);
+
         }
 
         public void NumberGen()
@@ -373,5 +360,8 @@ namespace BrickBreaker
             //draw lives
             e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
         }
+
     }
+
+
 }
