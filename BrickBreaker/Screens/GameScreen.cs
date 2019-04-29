@@ -89,7 +89,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("2");
+            LevelLoad("3");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
