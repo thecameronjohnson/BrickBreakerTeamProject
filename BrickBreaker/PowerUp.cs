@@ -50,6 +50,11 @@ namespace BrickBreaker
             }
         }
 
+        public Color UpdateColour()
+        {
+           return Color.Blue;
+        }
+
         //move the power up down the screen
         public void Move()
         {
