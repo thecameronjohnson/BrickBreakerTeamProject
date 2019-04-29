@@ -25,6 +25,7 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
+
         string level, levelName;
         public static int lives, score, scoreMult;
         public static double lastPower = 0;
@@ -88,7 +89,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("1");
+            LevelLoad("3");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -140,7 +141,7 @@ namespace BrickBreaker
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            //player 1 button releases
+            //player 1 button release
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -321,12 +322,10 @@ namespace BrickBreaker
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
 
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            //MenuScreen ps = new MenuScreen();
+            Form1.ChangeScreen(this, "HighScreen");
 
-            form.Controls.Add(ps);
-            form.Controls.Remove(this);
         }
 
         public void NumberGen()
@@ -355,5 +354,8 @@ namespace BrickBreaker
             //draw lives
             e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
         }
+
     }
+
+
 }
