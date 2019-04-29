@@ -100,10 +100,6 @@ namespace BrickBreaker
 
         public void NewLevel()
         {
-            int paddleX = ((this.Width / 2) - (paddle.width / 2));
-            int paddleY = (this.Height - paddle.height) - 60;
-            int ballX = this.Width / 2 - 10;
-            int ballY = this.Height - paddle.height - 80;
             LevelLoad(Convert.ToString(currentLevel));
         }
 
