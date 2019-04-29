@@ -26,7 +26,7 @@ namespace BrickBreaker
             x = x + xSpeed;
             y = y + ySpeed;
         }
-
+        //aaaaa
         public bool BlockCollision(Block b)
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
