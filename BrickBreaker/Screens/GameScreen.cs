@@ -26,6 +26,7 @@ namespace BrickBreaker
 
         // Game values
 
+        int currentLevel = 1;
         string level, levelName;
         public static int lives, score, scoreMult;
         public static int powerupSpeed = 5;
@@ -90,21 +91,8 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("3");
 
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-
-            //blocks.Clear();
-            //int x = 10;
-
-            //while (blocks.Count < 12)
-            //{
-            //    x += 57;
-            //    Block b1 = new Block(x, 10, 2);
-            //    blocks.Add(b1);
-            //}
-
-            #endregion
+            LevelLoad(Convert.ToString(currentLevel));
 
             // start the game engine loop
             gameTimer.Enabled = true;
@@ -280,8 +268,8 @@ namespace BrickBreaker
 
                     if (blocks.Count == 0)
                     {
-                        gameTimer.Enabled = false;
-                        OnEnd();
+                        currentLevel++;
+                        OnStart();
                     }
 
                     break;
