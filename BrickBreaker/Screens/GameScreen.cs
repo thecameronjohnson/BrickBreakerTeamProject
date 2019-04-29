@@ -100,7 +100,6 @@ namespace BrickBreaker
 
         public void NewLevel()
         {
-            
             LevelLoad(Convert.ToString(currentLevel));
         }
 
@@ -175,6 +174,12 @@ namespace BrickBreaker
 
             // Move ball
             ball.Move();
+
+            //Move powerups
+            foreach (PowerUp p in powers)
+            {
+                p.Move();
+            }
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
