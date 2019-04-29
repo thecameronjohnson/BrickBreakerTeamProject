@@ -320,7 +320,7 @@ namespace BrickBreaker
             }
             brickReader.Close();
         }
-
+        
         public void OnEnd()
 
         {    
