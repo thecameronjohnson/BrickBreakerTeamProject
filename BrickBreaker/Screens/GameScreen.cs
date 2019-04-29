@@ -89,7 +89,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("2");
+            LevelLoad("3");
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -322,15 +322,9 @@ namespace BrickBreaker
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            
+
             //MenuScreen ps = new MenuScreen();
-            Screens.HighScreen hs = new Screens.HighScreen();
-            
-            hs.Location = new Point((form.Width - hs.Width) / 2, (form.Height - hs.Height) / 2);
-
-
-            form.Controls.Add(hs);
-            form.Controls.Remove(this);
+            Form1.ChangeScreen(this, "HighScreen");
 
         }
 
