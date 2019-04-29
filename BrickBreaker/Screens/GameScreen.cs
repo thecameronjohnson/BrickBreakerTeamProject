@@ -25,8 +25,12 @@ namespace BrickBreaker
         Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
 
         // Game values
+
+        int currentLevel = 1;
         string level, levelName;
         public static int lives, score, scoreMult;
+        public static int powerupSpeed = 5;
+        public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
         Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
@@ -39,11 +43,15 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
         List<Ball> ballList = new List<Ball>();
+        List<PowerUp> powers = new List<PowerUp>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
+        //Random number gen
+        Random randGen = new Random();
+        int powerValue;
 
         #endregion
 
@@ -56,9 +64,9 @@ namespace BrickBreaker
 
         public void OnStart()
         {
-            //set life counter
-            lives = 3;
-
+            //reset score
+            lives = 5;
+            score = 0;
             scoreMult = 1;
 
             //set all button presses to false.
@@ -83,24 +91,16 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
 
-            LevelLoad("2");
 
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-
-            //blocks.Clear();
-            //int x = 10;
-
-            //while (blocks.Count < 12)
-            //{
-            //    x += 57;
-            //    Block b1 = new Block(x, 10, 2);
-            //    blocks.Add(b1);
-            //}
-
-            #endregion
+            NewLevel();
 
             // start the game engine loop
             gameTimer.Enabled = true;
+        }
+
+        public void NewLevel()
+        {
+            LevelLoad(Convert.ToString(currentLevel));
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -135,7 +135,7 @@ namespace BrickBreaker
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            //player 1 button releases
+            //player 1 button release
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -175,6 +175,12 @@ namespace BrickBreaker
             // Move ball
             ball.Move();
 
+            //Move powerups
+            foreach (PowerUp p in powers)
+            {
+                p.Move();
+            }
+
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
@@ -203,13 +209,14 @@ namespace BrickBreaker
                         b.size = 20;
 
                         Refresh();
-                        Thread.Sleep(2000);
+                        
 
                         if (lives == 0)
                         {
                             gameTimer.Enabled = false;
                             OnEnd();
                         }
+                        Thread.Sleep(2000);
                     }
                 }
             }
@@ -246,17 +253,34 @@ namespace BrickBreaker
                 {
                     --b.hp;
                     //blocks.Remove(b);
+                    int blockX = b.x;
+                    int blockY = b.y + b.height;
+                    int blockSize = b.width;
 
                     if (b.hp == 0)
                     {
                         blocks.Remove(b);
-                        score = score + 100 * scoreMult;
+
+                        score = score + 100*scoreMult;
+                        double d = score / 500;
+                        double scoreint = Math.Round(d);
+                        
+                        if (scoreint > lastPower)
+                        {
+                            lastPower = scoreint;
+                            NumberGen();
+                            int powertype = powerValue;
+
+                            PowerUp power = new PowerUp(blockSize / 2 + blockX, blockY, powerupSpeed, 15, powertype);
+                            powers.Add(power);
+                        }                        
+
                     }
 
                     if (blocks.Count == 0)
                     {
-                        gameTimer.Enabled = false;
-                        OnEnd();
+                        currentLevel++;
+                        NewLevel();
                     }
 
                     break;
@@ -267,11 +291,12 @@ namespace BrickBreaker
             Refresh();
         }
 
-        //Doesn't work yet as it doesn't actually grab values for x, y and hp.
+
         private void LevelLoad(string levelNo)
         {
-        
             XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");
+            
+           
 
             while (brickReader.Read())
             {
@@ -287,7 +312,11 @@ namespace BrickBreaker
                 b.y = Convert.ToInt16(y);
                 b.hp = Convert.ToInt16(hp);
 
-                blocks.Add(b);
+                if (b.hp != 0)
+                {
+                    blocks.Add(b);
+                }
+                
             }
             brickReader.Close();
         }
@@ -296,29 +325,52 @@ namespace BrickBreaker
         {
             // Goes to the game over screen
             Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
 
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            //MenuScreen ps = new MenuScreen();
+            Form1.ChangeScreen(this, "HighScreen");
 
-            form.Controls.Add(ps);
-            form.Controls.Remove(this);
+        }
+
+        public void NumberGen()
+        {          
+            powerValue = randGen.Next(1, 5);
         }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            // Draws paddle
-            paddleBrush.Color = paddle.colour;
-            e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
+            //Draw Paddle
+            e.Graphics.DrawImage(Properties.Resources.Player1, paddle.x, paddle.y);
+
+            //Draw Ball
+            e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y);
 
             // Draws blocks
             foreach (Block b in blocks)
             {
-                SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+                if (b.hp == 1)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.Green_Brick, b.x, b.y);
+                }
+                else if (b.hp == 2)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y);
+                }
+                else if (b.hp == 3)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.purpBrick, b.x, b.y);
+                }
+                else if (b.hp == 4)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y);
+                }
             }
 
-            // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            // Draws powerups
+            foreach (PowerUp p in powers)
+            {
+                SolidBrush powerBrush = new SolidBrush(p.UpdateColour());
+                e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
+            }
 
             //draws score
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
@@ -326,5 +378,8 @@ namespace BrickBreaker
             //draw lives
             e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
         }
+
     }
+
+
 }
