@@ -333,15 +333,31 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            // Draws paddle
-            paddleBrush.Color = paddle.colour;
-            e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
+            //Draw Paddle
+            e.Graphics.DrawImage(Properties.Resources.Player1, paddle.x, paddle.y);
+
+            //Draw Ball
+            e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y);
 
             // Draws blocks
             foreach (Block b in blocks)
             {
-                SolidBrush blockBrush = new SolidBrush(b.UpdateColour());
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+                if (b.hp == 1)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.Green_Brick, b.x, b.y);
+                }
+                else if (b.hp == 2)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y);
+                }
+                else if (b.hp == 3)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.purpBrick, b.x, b.y);
+                }
+                else if (b.hp == 4)
+                {
+                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y);
+                }
             }
 
             // Draws powerups
@@ -350,9 +366,6 @@ namespace BrickBreaker
                 SolidBrush powerBrush = new SolidBrush(p.UpdateColour());
                 e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
             }
-
-            // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
             //draws score
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
