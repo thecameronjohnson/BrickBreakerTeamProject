@@ -63,8 +63,8 @@ namespace BrickBreaker
 
         public void OnStart()
         {
-            //set life counter
-            lives = 3;
+            //reset score
+            lives = 5;
             score = 0;
             scoreMult = 1;
 
@@ -91,10 +91,16 @@ namespace BrickBreaker
             ballList.Add(ball);
 
 
-            LevelLoad(Convert.ToString(currentLevel));
+            NewLevel();
 
             // start the game engine loop
             gameTimer.Enabled = true;
+        }
+
+        public void NewLevel()
+        {
+            
+            LevelLoad(Convert.ToString(currentLevel));
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -265,7 +271,7 @@ namespace BrickBreaker
                     if (blocks.Count == 0)
                     {
                         currentLevel++;
-                        OnStart();
+                        NewLevel();
                     }
 
                     break;
