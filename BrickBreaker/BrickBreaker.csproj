@@ -166,10 +166,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Level2.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Level1.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Player1.png" />
     <None Include="Resources\Player2.png" />
