@@ -22,7 +22,8 @@ namespace BrickBreaker
 
 		private void HighScreen_Load(object sender, EventArgs e)
 		{
-			XmlReader reader = XmlReader.Create("Resources/HighScores.xml");
+            allign();
+            XmlReader reader = XmlReader.Create("Resources/HighScores.xml");
 
 			while (reader.Read())
 			{
@@ -72,5 +73,11 @@ namespace BrickBreaker
             form.Controls.Add(ms);
             form.Controls.Remove(this);
         }
+
+        private void allign()
+        {
+            label1.Location = new Point((this.Width - label1.Width) / 2, (this.Height - label1.Height) / 2);
+        }
+
     }
 }
