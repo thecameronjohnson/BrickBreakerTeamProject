@@ -22,19 +22,19 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
+        Boolean leftArrowDown, rightArrowDown, spaceKeyDown, escDown, gamePaused, holding;
 
         // Game values
 
         int currentLevel = 4;
         string level, levelName;
         public static int lives, score, scoreMult;
-        public static int powerupSpeed = 5;
+        public static int powerupSpeed = 2;
         public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
-        Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
-        SolidBrush scoreBrush = new SolidBrush(Color.White);
+        Font scoreFont = new Font("OCR A std", 14, FontStyle.Regular);
+        SolidBrush scoreBrush = new SolidBrush(Color.Cyan);
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -71,6 +71,7 @@ namespace BrickBreaker
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escDown = gamePaused = false;
+            holding = true;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -128,6 +129,9 @@ namespace BrickBreaker
 
                     //TODO: change screen
                     break;
+                case Keys.Space:
+                    spaceKeyDown = true;
+                    break;
                 default:
                     break;
             }
@@ -143,6 +147,9 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = false;
+                    break;
+                case Keys.Space:
+                    spaceKeyDown = false;
                     break;
                 default:
                     break;
@@ -172,9 +179,22 @@ namespace BrickBreaker
                 gamePaused = !gamePaused;
             }
 
-            // Move ball
-            ball.Move();
+            if (holding)
+            {
+                ballList[0].x = (paddle.x + (paddle.width / 2)) - ballList[0].size / 2;
+                ballList[0].y = paddle.y - 85;
 
+                //If space bar pressed, release ball
+                if (spaceKeyDown)
+                {
+                    holding = false;
+                }
+            }
+            else if (!holding)
+            {
+                // Move ball
+                ball.Move();
+            }
             //Move powerups
             foreach (PowerUp p in powers)
             {
@@ -235,6 +255,7 @@ namespace BrickBreaker
 
                 ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
                 ballList.Add(ball);
+                holding = true;
 
                 if (lives == 0)
                 {
@@ -357,19 +378,19 @@ namespace BrickBreaker
             {
                 if (b.hp == 1)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.Green_Brick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.greenBrick2, b.x, b.y);
                 }
                 else if (b.hp == 2)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick2, b.x, b.y);
                 }
                 else if (b.hp == 3)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.purpBrick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.purpBrick2, b.x, b.y);
                 }
                 else if (b.hp == 4)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.redBrick2, b.x, b.y);
                 }
             }
 
