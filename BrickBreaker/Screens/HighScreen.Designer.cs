@@ -50,7 +50,6 @@
             this.label1.Font = new System.Drawing.Font("OCR A Std", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Cyan;
             this.label1.Image = global::BrickBreaker.Properties.Resources.button;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(293, 216);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 78);
