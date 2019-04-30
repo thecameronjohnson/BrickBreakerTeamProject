@@ -52,7 +52,7 @@
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Font = new System.Drawing.Font("OCR A Std", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.Color.Cyan;
-			this.button1.Location = new System.Drawing.Point(60, 442);
+			this.button1.Location = new System.Drawing.Point(611, 449);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(167, 78);
 			this.button1.TabIndex = 6;
@@ -70,7 +70,6 @@
 			this.Controls.Add(this.highScores);
 			this.Name = "HighScreen";
 			this.Size = new System.Drawing.Size(800, 550);
-			this.Load += new System.EventHandler(this.HighScreen_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
