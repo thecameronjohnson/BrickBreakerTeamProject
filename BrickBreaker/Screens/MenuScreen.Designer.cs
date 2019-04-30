@@ -43,8 +43,8 @@
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playButton.ForeColor = System.Drawing.Color.Aqua;
-            this.playButton.Location = new System.Drawing.Point(307, 247);
+            this.playButton.ForeColor = System.Drawing.Color.Cyan;
+            this.playButton.Location = new System.Drawing.Point(207, 193);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(181, 78);
             this.playButton.TabIndex = 0;
@@ -61,7 +61,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Cyan;
-            this.exitButton.Location = new System.Drawing.Point(307, 371);
+            this.exitButton.Location = new System.Drawing.Point(207, 279);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(181, 78);
             this.exitButton.TabIndex = 1;
@@ -90,12 +90,13 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Controls.Add(this.title);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
             this.DoubleBuffered = true;
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(800, 550);
+            //this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MenuScreen_KeyUp);
+            //this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MenuScreen_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
