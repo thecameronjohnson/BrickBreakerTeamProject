@@ -33,8 +33,8 @@ namespace BrickBreaker
         public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
-        Font scoreFont = new Font("Mongolian Baiti", 14, FontStyle.Regular);
-        SolidBrush scoreBrush = new SolidBrush(Color.White);
+        Font scoreFont = new Font("OCR A std", 14, FontStyle.Regular);
+        SolidBrush scoreBrush = new SolidBrush(Color.Cyan);
 
         // Paddle and Ball objects
         Paddle paddle;
