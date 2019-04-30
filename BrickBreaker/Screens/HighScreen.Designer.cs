@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-
+			this.label1 = new System.Windows.Forms.Label();
+			this.highScores = new System.Windows.Forms.Label();
+			this.SuspendLayout();
             // 
             // label1
             // 
@@ -41,10 +43,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Main Menu";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-
-			this.label1 = new System.Windows.Forms.Label();
-			this.highScores = new System.Windows.Forms.Label();
-			this.SuspendLayout();
 			// 
 			// highScores
 			// 
