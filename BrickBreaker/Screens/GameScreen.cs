@@ -376,22 +376,8 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                if (b.hp == 1)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.greenBrick2, b.x, b.y);
-                }
-                else if (b.hp == 2)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.blueBrick2, b.x, b.y);
-                }
-                else if (b.hp == 3)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.purpBrick2, b.x, b.y);
-                }
-                else if (b.hp == 4)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.redBrick2, b.x, b.y);
-                }
+               
+                e.Graphics.DrawImage(b.UpdateColour(), b.x, b.y);
             }
 
             // Draws powerups
