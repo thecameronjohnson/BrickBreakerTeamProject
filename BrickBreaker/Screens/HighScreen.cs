@@ -36,7 +36,8 @@ namespace BrickBreaker
 
 		private void HighScreen_Load()
 		{
-			XmlReader reader = XmlReader.Create("Resources/HighScores.xml");
+            allign();
+            XmlReader reader = XmlReader.Create("Resources/HighScores.xml");
 
 			while (reader.Read())
 			{
@@ -105,5 +106,20 @@ namespace BrickBreaker
 						  "10. " + name10 + " - " + score10;
 		}
 
+		private void label1_Click(object sender, EventArgs e)
+        {
+            Form form = this.FindForm();
+            MenuScreen ms = new MenuScreen();
+
+            ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
+
+            form.Controls.Add(ms);
+            form.Controls.Remove(this);
+        }
+
+        private void allign()
+        {
+            label1.Location = new Point((this.Width - label1.Width) / 2, (this.Height - label1.Height) / 2);
+        }
     }
 }
