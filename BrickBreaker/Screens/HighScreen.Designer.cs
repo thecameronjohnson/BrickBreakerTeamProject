@@ -30,6 +30,7 @@
         {
             this.highScores = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // highScores
@@ -38,7 +39,7 @@
             this.highScores.BackColor = System.Drawing.Color.Transparent;
             this.highScores.Font = new System.Drawing.Font("OCR A Std", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highScores.ForeColor = System.Drawing.Color.Cyan;
-            this.highScores.Location = new System.Drawing.Point(56, 47);
+            this.highScores.Location = new System.Drawing.Point(50, 111);
             this.highScores.Name = "highScores";
             this.highScores.Size = new System.Drawing.Size(51, 380);
             this.highScores.TabIndex = 5;
@@ -58,12 +59,24 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("OCR A Std", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Cyan;
+            this.label2.Location = new System.Drawing.Point(50, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 22);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "High Scores";
+            // 
             // HighScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.highScores);
             this.Controls.Add(this.label1);
             this.Name = "HighScreen";
@@ -77,5 +90,6 @@
         #endregion
 		private System.Windows.Forms.Label highScores;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
