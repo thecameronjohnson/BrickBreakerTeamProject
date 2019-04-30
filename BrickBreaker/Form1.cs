@@ -29,6 +29,7 @@ namespace BrickBreaker
 
             
         }
+
         public static void ChangeScreen(UserControl current, string next)
         {
             //f is set to the form that the current control is on
