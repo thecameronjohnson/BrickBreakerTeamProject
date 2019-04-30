@@ -22,7 +22,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, spaceKeyDown, escDown, gamePaused;
+        Boolean leftArrowDown, rightArrowDown, spaceKeyDown, escDown, gamePaused, holding;
 
         // Game values
 
@@ -71,6 +71,7 @@ namespace BrickBreaker
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escDown = gamePaused = false;
+            holding = true;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -178,9 +179,22 @@ namespace BrickBreaker
                 gamePaused = !gamePaused;
             }
 
-            // Move ball
-            ball.Move();
+            if (holding)
+            {
+                ballList[0].x = (paddle.x + (paddle.width / 2)) - ballList[0].size / 2;
+                ballList[0].y = (this.Height - paddle.height) - 85;
 
+                //If space bar pressed, release ball
+                if (spaceKeyDown)
+                {
+                    holding = false;
+                }
+            }
+            else if (!holding)
+            {
+                // Move ball
+                ball.Move();
+            }
             //Move powerups
             foreach (PowerUp p in powers)
             {
@@ -215,14 +229,13 @@ namespace BrickBreaker
                         b.size = 20;
 
                         Refresh();
-                        
+                        holding = true;
 
                         if (lives == 0)
                         {
                             gameTimer.Enabled = false;
                             OnEnd();
                         }
-                        Thread.Sleep(2000);
                     }
                 }
             }
@@ -241,6 +254,7 @@ namespace BrickBreaker
 
                 ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
                 ballList.Add(ball);
+                holding = true;
 
                 if (lives == 0)
                 {
@@ -300,9 +314,7 @@ namespace BrickBreaker
 
         private void LevelLoad(string levelNo)
         {
-            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");
-            
-           
+            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");   
 
             while (brickReader.Read())
             {
@@ -380,7 +392,10 @@ namespace BrickBreaker
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
 
             //draw lives
+
+
             e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 140, 25);
+
         }
 
     }
