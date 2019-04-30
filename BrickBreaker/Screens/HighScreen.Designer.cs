@@ -28,22 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.label1 = new System.Windows.Forms.Label();
 			this.highScores = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.Transparent;
-			this.label1.Font = new System.Drawing.Font("OCR A Std", 24F);
-			this.label1.ForeColor = System.Drawing.Color.Cyan;
-			this.label1.Location = new System.Drawing.Point(54, 470);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(222, 34);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Main Menu";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// highScores
 			// 
@@ -57,14 +44,30 @@
 			this.highScores.TabIndex = 5;
 			this.highScores.Text = "1.\r\n\r\n2.\r\n\r\n3.\r\n\r\n4.\r\n\r\n5.\r\n\r\n6.\r\n\r\n7.\r\n\r\n8.\r\n\r\n9.\r\n\r\n10.";
 			// 
+			// button1
+			// 
+			this.button1.BackgroundImage = global::BrickBreaker.Properties.Resources.button;
+			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button1.FlatAppearance.BorderSize = 0;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Font = new System.Drawing.Font("OCR A Std", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.ForeColor = System.Drawing.Color.Cyan;
+			this.button1.Location = new System.Drawing.Point(60, 442);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(167, 78);
+			this.button1.TabIndex = 6;
+			this.button1.Text = "RETURN";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// HighScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Transparent;
 			this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.highScores);
-			this.Controls.Add(this.label1);
 			this.Name = "HighScreen";
 			this.Size = new System.Drawing.Size(800, 550);
 			this.Load += new System.EventHandler(this.HighScreen_Load);
@@ -74,8 +77,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label highScores;
+		private System.Windows.Forms.Button button1;
 	}
 }

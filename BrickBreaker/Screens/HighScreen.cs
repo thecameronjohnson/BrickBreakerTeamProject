@@ -20,6 +20,17 @@ namespace BrickBreaker
 
 		int score1, score2, score3, score4, score5, score6, score7, score8, score9, score10;
 
+		private void button1_Click(object sender, EventArgs e)
+		{
+			Form form = this.FindForm();
+			MenuScreen ms = new MenuScreen();
+
+			ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
+
+			form.Controls.Add(ms);
+			form.Controls.Remove(this);
+		}
+
 		private void HighScreen_Load(object sender, EventArgs e)
 		{
 			XmlReader reader = XmlReader.Create("Resources/HighScores.xml");
@@ -62,15 +73,5 @@ namespace BrickBreaker
 						  "10. " + score10;
 		}
 
-		private void label1_Click(object sender, EventArgs e)
-        {
-            Form form = this.FindForm();
-            MenuScreen ms = new MenuScreen();
-
-            ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
-
-            form.Controls.Add(ms);
-            form.Controls.Remove(this);
-        }
     }
 }
