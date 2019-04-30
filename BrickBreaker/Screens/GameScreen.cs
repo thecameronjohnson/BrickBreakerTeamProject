@@ -392,7 +392,7 @@ namespace BrickBreaker
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
 
             //draw lives
-            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 100, 25);
+            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 150, 25);
         }
 
     }
