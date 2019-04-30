@@ -29,7 +29,7 @@ namespace BrickBreaker
         int currentLevel = 1;
         string level, levelName;
         public static int lives, score, scoreMult;
-        public static int powerupSpeed = 5;
+        public static int powerupSpeed = 2;
         public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
