@@ -26,7 +26,7 @@ namespace BrickBreaker
 
         // Game values
 
-        int currentLevel = 3;
+        int currentLevel = 4;
         string level, levelName;
         public static int lives, score, scoreMult;
         public static int powerupSpeed = 5;
@@ -294,9 +294,17 @@ namespace BrickBreaker
 
         private void LevelLoad(string levelNo)
         {
-            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");
-            
-           
+            XmlReader brickReader;
+            try
+            {
+                 brickReader = XmlReader.Create("Resources/Level" + levelNo + ".xml");
+            }
+            catch
+            {
+                Form1.ChangeScreen(this, "MenuScreen");
+                brickReader = XmlReader.Create("Resources/Level1.xml");
+            }
+
 
             while (brickReader.Read())
             {
@@ -316,9 +324,11 @@ namespace BrickBreaker
                 {
                     blocks.Add(b);
                 }
-                
+
             }
             brickReader.Close();
+
+        
         }
         
         public void OnEnd()
