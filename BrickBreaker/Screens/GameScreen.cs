@@ -349,19 +349,19 @@ namespace BrickBreaker
             {
                 if (b.hp == 1)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.Green_Brick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.greenBrick2, b.x, b.y);
                 }
                 else if (b.hp == 2)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.blueBrick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.blueBrick2, b.x, b.y);
                 }
                 else if (b.hp == 3)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.purpBrick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.purpBrick2, b.x, b.y);
                 }
                 else if (b.hp == 4)
                 {
-                    e.Graphics.DrawImage(Properties.Resources.redBrick, b.x, b.y);
+                    e.Graphics.DrawImage(Properties.Resources.redBrick2, b.x, b.y);
                 }
             }
 
