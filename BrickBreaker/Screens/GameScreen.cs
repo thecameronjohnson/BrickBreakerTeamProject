@@ -301,6 +301,7 @@ namespace BrickBreaker
                     {
                         currentLevel++;
                         NewLevel();
+                        holding = true;
                     }
 
                     break;
