@@ -314,9 +314,7 @@ namespace BrickBreaker
 
         private void LevelLoad(string levelNo)
         {
-            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");
-            
-           
+            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");   
 
             while (brickReader.Read())
             {
