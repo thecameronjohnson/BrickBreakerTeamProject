@@ -12,11 +12,11 @@ namespace BrickBreaker
 {
     public partial class MenuScreen : UserControl
     {
-        Boolean upPress, downPress = false;
-
+       
         public MenuScreen()
         {
             InitializeComponent();
+            lorenAllignment();
 
         }
 
@@ -37,7 +37,7 @@ namespace BrickBreaker
         {
             playButton.Location = new Point((this.Width - playButton.Width) / 2, 250);
             exitButton.Location = new Point((this.Width - exitButton.Width) / 2, 370);
-            title.Location = new Point((this.Width - title.Width) / 2, 90);
+            title.Location = new Point((this.Width - title.Width) / 2, 130);
         }       
     }
 }
