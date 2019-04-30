@@ -28,49 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuLabel = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // menuLabel
-            // 
-            this.menuLabel.AutoSize = true;
-            this.menuLabel.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.menuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuLabel.Location = new System.Drawing.Point(292, 429);
-            this.menuLabel.Name = "menuLabel";
-            this.menuLabel.Size = new System.Drawing.Size(187, 39);
-            this.menuLabel.TabIndex = 0;
-            this.menuLabel.Text = "Main Menu";
-            this.menuLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(317, 76);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(125, 23);
-            this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "High Scores";
-            // 
-            // HighScreen
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.menuLabel);
-            this.Name = "HighScreen";
-            this.Size = new System.Drawing.Size(800, 550);
-            this.Load += new System.EventHandler(this.HighScreen_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.label1 = new System.Windows.Forms.Label();
+			this.highScores = new System.Windows.Forms.Label();
+			this.SuspendLayout();
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Font = new System.Drawing.Font("OCR A Std", 24F);
+			this.label1.ForeColor = System.Drawing.Color.Cyan;
+			this.label1.Location = new System.Drawing.Point(54, 470);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(222, 34);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Main Menu";
+			this.label1.Click += new System.EventHandler(this.label1_Click);
+			// 
+			// highScores
+			// 
+			this.highScores.AutoSize = true;
+			this.highScores.BackColor = System.Drawing.Color.Transparent;
+			this.highScores.Font = new System.Drawing.Font("OCR A Std", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.highScores.ForeColor = System.Drawing.Color.Cyan;
+			this.highScores.Location = new System.Drawing.Point(56, 47);
+			this.highScores.Name = "highScores";
+			this.highScores.Size = new System.Drawing.Size(51, 380);
+			this.highScores.TabIndex = 5;
+			this.highScores.Text = "1.\r\n\r\n2.\r\n\r\n3.\r\n\r\n4.\r\n\r\n5.\r\n\r\n6.\r\n\r\n7.\r\n\r\n8.\r\n\r\n9.\r\n\r\n10.";
+			// 
+			// HighScreen
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Transparent;
+			this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
+			this.Controls.Add(this.highScores);
+			this.Controls.Add(this.label1);
+			this.Name = "HighScreen";
+			this.Size = new System.Drawing.Size(800, 550);
+			this.Load += new System.EventHandler(this.HighScreen_Load);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label menuLabel;
-        private System.Windows.Forms.Label titleLabel;
-    }
+        private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label highScores;
+	}
 }
