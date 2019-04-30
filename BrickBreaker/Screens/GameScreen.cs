@@ -22,7 +22,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, escDown, gamePaused;
+        Boolean leftArrowDown, rightArrowDown, spaceKeyDown, escDown, gamePaused;
 
         // Game values
 
@@ -128,6 +128,9 @@ namespace BrickBreaker
 
                     //TODO: change screen
                     break;
+                case Keys.Space:
+                    spaceKeyDown = true;
+                    break;
                 default:
                     break;
             }
@@ -143,6 +146,9 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = false;
+                    break;
+                case Keys.Space:
+                    spaceKeyDown = false;
                     break;
                 default:
                     break;
