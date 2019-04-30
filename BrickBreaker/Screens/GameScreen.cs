@@ -182,7 +182,7 @@ namespace BrickBreaker
             if (holding)
             {
                 ballList[0].x = (paddle.x + (paddle.width / 2)) - ballList[0].size / 2;
-                ballList[0].y = paddle.y - 85;
+                ballList[0].y = (this.Height - paddle.height) - 85;
 
                 //If space bar pressed, release ball
                 if (spaceKeyDown)
@@ -229,14 +229,13 @@ namespace BrickBreaker
                         b.size = 20;
 
                         Refresh();
-                        
+                        holding = true;
 
                         if (lives == 0)
                         {
                             gameTimer.Enabled = false;
                             OnEnd();
                         }
-                        Thread.Sleep(2000);
                     }
                 }
             }
