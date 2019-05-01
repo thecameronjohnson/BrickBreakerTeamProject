@@ -16,13 +16,14 @@ namespace BrickBreaker
         public HighScreen()
         {
             InitializeComponent();
+            allign();
         }
 
 		int score1, score2, score3, score4, score5, score6, score7, score8, score9, score10;
 
 		private void HighScreen_Load(object sender, EventArgs e)
 		{
-            allign();
+           
             XmlReader reader = XmlReader.Create("Resources/HighScores.xml");
 
 			while (reader.Read())
