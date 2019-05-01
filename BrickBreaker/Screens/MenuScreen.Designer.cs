@@ -32,6 +32,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.howButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // playButton
@@ -45,7 +46,7 @@
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.Color.Cyan;
-            this.playButton.Location = new System.Drawing.Point(306, 281);
+            this.playButton.Location = new System.Drawing.Point(306, 238);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(181, 78);
             this.playButton.TabIndex = 0;
@@ -62,7 +63,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("OCR A Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Cyan;
-            this.exitButton.Location = new System.Drawing.Point(306, 365);
+            this.exitButton.Location = new System.Drawing.Point(306, 406);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(181, 78);
             this.exitButton.TabIndex = 1;
@@ -96,6 +97,24 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Brick Breaker";
             // 
+            // howButton
+            // 
+            this.howButton.BackColor = System.Drawing.Color.Transparent;
+            this.howButton.BackgroundImage = global::BrickBreaker.Properties.Resources.button;
+            this.howButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.howButton.FlatAppearance.BorderSize = 0;
+            this.howButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.howButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.howButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.howButton.Font = new System.Drawing.Font("OCR A Std", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.howButton.ForeColor = System.Drawing.Color.Cyan;
+            this.howButton.Location = new System.Drawing.Point(306, 322);
+            this.howButton.Name = "howButton";
+            this.howButton.Size = new System.Drawing.Size(181, 78);
+            this.howButton.TabIndex = 3;
+            this.howButton.Text = "How To Play";
+            this.howButton.UseVisualStyleBackColor = false;
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,6 +122,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::BrickBreaker.Properties.Resources.Stars;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Controls.Add(this.howButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
@@ -120,5 +140,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button howButton;
     }
 }
