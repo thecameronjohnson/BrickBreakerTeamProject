@@ -119,7 +119,7 @@ namespace BrickBreaker
 
         private void allign()
         {
-            label1.Location = new Point((this.Width - label1.Width) / 2, (this.Height - label1.Height) / 2);
+            button1.Location = new Point((this.Width - button1.Width) / 2, (this.Height - button1.Height) / 2);
         }
     }
 }
