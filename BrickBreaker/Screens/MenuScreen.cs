@@ -58,5 +58,10 @@ namespace BrickBreaker
 		{
 			Form1.ChangeScreen(this, "NameScreen");
 		}
-	}
+
+        private void highButton_Click(object sender, EventArgs e)
+        {
+            Form1.ChangeScreen(this, "HighScreen");
+        }
+    }
 }

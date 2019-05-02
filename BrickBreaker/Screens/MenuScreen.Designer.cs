@@ -131,6 +131,7 @@
             this.highButton.Text = "HS Screen";
             this.highButton.UseVisualStyleBackColor = false;
             this.highButton.Visible = false;
+            this.highButton.Click += new System.EventHandler(this.highButton_Click);
             // 
             // showDebug
             // 
