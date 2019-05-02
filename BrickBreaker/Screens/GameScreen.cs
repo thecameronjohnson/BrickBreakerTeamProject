@@ -199,8 +199,35 @@ namespace BrickBreaker
             foreach (PowerUp p in powers)
             {
                 p.Move();
-            }
+                if (p.PowerUpCollision(paddle))
+                {
+                    switch (powerValue)
+                    {
+                        case 1:
+                            GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
 
+                            break;
+                        case 2:
+                            GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
+                            break;
+                        case 3:
+                            GameScreen.scoreMult = GameScreen.scoreMult + 1;
+                            break;
+                        case 4:
+                            GameScreen.score = GameScreen.score + 2000;
+                            break;                         
+                    }
+                    powers.Remove(powers[0]);
+                    break;
+                }
+
+                //delete power up if it goes off the screen
+                if(p.y > paddle.y + 10)
+                {
+                    powers.Remove(powers[0]);
+                }
+            }
+           
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
