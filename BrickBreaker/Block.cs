@@ -25,10 +25,10 @@ namespace BrickBreaker
             x = _x;
             y = _y;
             hp = _hp;
-            leftRec = new Rectangle(x, y, 1, height);
-            rightRec = new Rectangle(x + width, y, 1, height);
-            topRec = new Rectangle(x, y, width, 1);
-            bottomRec = new Rectangle(x, y + height, width, 1);
+            leftRec = new Rectangle(x, y, 2, height);
+            rightRec = new Rectangle(x + width, y, 2, height);
+            topRec = new Rectangle(x, y, width, 2);
+            bottomRec = new Rectangle(x, y + height, width, 2);
         }
         public Image UpdateColour()
         {
