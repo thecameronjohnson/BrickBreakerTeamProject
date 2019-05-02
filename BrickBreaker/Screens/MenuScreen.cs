@@ -16,7 +16,7 @@ namespace BrickBreaker
         public MenuScreen()
         {
             InitializeComponent();
-            lorenAllignment();
+            //lorenAllignment();
         }
 
         private void exitButton_Click(object sender, EventArgs e)

@@ -19,9 +19,6 @@ namespace BrickBreaker
 		public HighScreen()
         {
             InitializeComponent();
-
-			HighScreen_Load();
-
         }
 
 
