@@ -201,6 +201,28 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;level number =&quot;4&quot; name =&quot;4 Times The Fun&quot;&gt;
+        ///  &lt;brick x =&quot;210&quot; y =&quot;147&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;100&quot; y =&quot;147&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;155&quot; y =&quot;147&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;155&quot; y =&quot;90&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;100&quot; y =&quot;90&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;69&quot; y =&quot;130&quot; hp =&quot;2&quot;/&gt;
+        ///  &lt;brick x =&quot;107&quot; y =&quot;108&quot; hp =&quot;2&quot;/&gt;
+        ///  &lt;brick x =&quot;200&quot; y =&quot;200&quot; hp =&quot;4&quot;/&gt;
+        ///  &lt;brick x =&quot;211&quot; y =&quot;211&quot; hp =&quot;5&quot;/&gt;
+        ///  &lt;brick x =&quot;300&quot; y =&quot;47&quot; hp =&quot;2&quot;/&gt;
+        ///  &lt;brick x =&quot;129&quot; y =&quot;47&quot; hp =&quot;1&quot;/&gt;
+        ///  &lt;brick x =&quot;2 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Level4 {
+            get {
+                return ResourceManager.GetString("Level4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Player1 {
