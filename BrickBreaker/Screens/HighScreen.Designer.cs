@@ -1,4 +1,4 @@
-﻿namespace BrickBreaker
+namespace BrickBreaker
 {
     partial class HighScreen
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.highScores = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuButton = new System.Windows.Forms.Button();
@@ -90,11 +91,15 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+
         }
 
         #endregion
 		private System.Windows.Forms.Label highScores;
+
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button menuButton;
     }
+
 }
+

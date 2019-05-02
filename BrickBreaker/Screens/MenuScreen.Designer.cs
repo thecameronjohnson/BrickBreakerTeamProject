@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
@@ -140,6 +141,8 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label1;
+
         private System.Windows.Forms.Button howButton;
     }
+
 }

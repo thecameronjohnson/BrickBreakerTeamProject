@@ -17,7 +17,6 @@ namespace BrickBreaker
         {
             InitializeComponent();
             lorenAllignment();
-
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -39,6 +38,25 @@ namespace BrickBreaker
             howButton.Location = new Point((this.Width - howButton.Width) / 2, 320); 
             exitButton.Location = new Point((this.Width - exitButton.Width) / 2, 400);
             title.Location = new Point((this.Width - title.Width) / 2, 130);
-        }       
-    }
+        }
+
+		private void showDebug_CheckedChanged(object sender, EventArgs e)
+		{
+			if (showDebug.Checked == true)
+			{
+				highButton.Visible = true;
+				nameButton.Visible = true;
+			}
+			else
+			{
+				highButton.Visible = false;
+				nameButton.Visible = false;
+			}
+		}
+
+		private void nameButton_Click(object sender, EventArgs e)
+		{
+			Form1.ChangeScreen(this, "NameScreen");
+		}
+	}
 }
