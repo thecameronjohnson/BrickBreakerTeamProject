@@ -45,9 +45,7 @@ namespace BrickBreaker
         List<Ball> ballList = new List<Ball>();
         List<PowerUp> powers = new List<PowerUp>();
 
-        // Brushes
-        SolidBrush paddleBrush = new SolidBrush(Color.White);
-        SolidBrush ballBrush = new SolidBrush(Color.White);
+        
 
         //Random number gen
         Random randGen = new Random();
@@ -57,7 +55,7 @@ namespace BrickBreaker
 
         public GameScreen()
         {
-            InitializeComponent();
+            InitializeComponent();            
             OnStart();
         }
 
@@ -308,6 +306,10 @@ namespace BrickBreaker
                 }
             }
 
+            //Write lives/score
+            lifelabel.Text = "Lives: " + lives;
+            scoreLabel.Text = "Score: " + score;
+
             //redraw the screen
             Refresh();
         }
@@ -387,14 +389,9 @@ namespace BrickBreaker
                 e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
             }
 
-            //draws score
-            e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
-
-            //draw lives
-
-
-            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 140, 25);
-
+            //draw upper boarder
+            e.Graphics.FillRectangle(scoreBrush, 0, 0, this.Width, 40);                  
+                       
         }
 
     }
