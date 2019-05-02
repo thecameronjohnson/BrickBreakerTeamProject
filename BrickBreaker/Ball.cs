@@ -212,6 +212,7 @@ namespace BrickBreaker
                     xSpeed = -8;
                 }
             }
+
             // Collision with top wall
             if (y <= 2)
             {
