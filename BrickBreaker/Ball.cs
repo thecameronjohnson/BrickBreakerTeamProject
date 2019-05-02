@@ -33,6 +33,7 @@ namespace BrickBreaker
             Rectangle blockTopRec = new Rectangle(b.x, b.y, b.width, b.height / 2);
             Rectangle blockLeftRec = new Rectangle(b.x, b.y + (b.height / 4), b.width / 2, b.height / 2);
             Rectangle blockRightRec = new Rectangle(b.x + (b.width / 2), b.y + (b.height / 4), b.width / 2, b.height / 2);
+
             Rectangle ballRec = new Rectangle(x, y, size, size);
 
             if (ballRec.IntersectsWith(blockTopRec))
@@ -111,8 +112,6 @@ namespace BrickBreaker
                 }
                 
             }
-
-
             if (blockBotRec.IntersectsWith(ballRec) || blockTopRec.IntersectsWith(ballRec) || blockLeftRec.IntersectsWith(ballRec) || blockRightRec.IntersectsWith(ballRec))
             {
                 return true;
