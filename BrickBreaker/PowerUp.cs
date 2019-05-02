@@ -25,29 +25,12 @@ namespace BrickBreaker
             powerValue = _powerValue;
         }
 
-        public void PowerUpCollision(Paddle p)
+        public Boolean PowerUpCollision(Paddle p)
         {
             Rectangle powerUpRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
 
-            if (powerUpRec.IntersectsWith(paddleRec))
-            {
-                switch (powerValue)
-                {
-                    case 1:
-                        GameScreen.bSpeedMult = GameScreen.bSpeedMult + 5;
-                        break;
-                    case 2:
-                        GameScreen.pSpeedMult = GameScreen.pSpeedMult + 5;
-                        break;
-                    case 3:
-                        GameScreen.scoreMult = GameScreen.scoreMult + 5;
-                        break;
-                    case 4:
-                        GameScreen.score = GameScreen.score + 2;
-                        break;
-                }
-            }
+            return (powerUpRec.IntersectsWith(paddleRec));
         }
 
         public Color UpdateColour()
