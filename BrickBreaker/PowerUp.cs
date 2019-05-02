@@ -35,16 +35,16 @@ namespace BrickBreaker
                 switch (powerValue)
                 {
                     case 1:
-                        GameScreen.bSpeedMult = GameScreen.bSpeedMult + 5;
+                        GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
                         break;
                     case 2:
-                        GameScreen.pSpeedMult = GameScreen.pSpeedMult + 5;
+                        GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
                         break;
                     case 3:
-                        GameScreen.scoreMult = GameScreen.scoreMult + 5;
+                        GameScreen.scoreMult = GameScreen.scoreMult + 1;
                         break;
                     case 4:
-                        GameScreen.score = GameScreen.score + 2;
+                        GameScreen.score = GameScreen.score + 2000;
                         break;
                 }
             }
