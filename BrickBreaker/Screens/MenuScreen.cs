@@ -34,8 +34,9 @@ namespace BrickBreaker
 
         private void lorenAllignment()
         {
-            playButton.Location = new Point((this.Width - playButton.Width) / 2, 250);
-            exitButton.Location = new Point((this.Width - exitButton.Width) / 2, 370);
+            playButton.Location = new Point((this.Width - playButton.Width) / 2, 240);
+            howButton.Location = new Point((this.Width - howButton.Width) / 2, 320); 
+            exitButton.Location = new Point((this.Width - exitButton.Width) / 2, 400);
             title.Location = new Point((this.Width - title.Width) / 2, 130);
         }
 
