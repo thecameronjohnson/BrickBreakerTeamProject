@@ -20,7 +20,7 @@ namespace BrickBreaker
         {
             InitializeComponent();
 
-			HighScreen_Load();
+			//HighScreen_Load();
 
         }
 
