@@ -74,7 +74,7 @@ namespace BrickBreaker
             holding = true;
 
             // setup starting paddle values and create paddle object
-            int paddleWidth = 80;
+            int paddleWidth = 110;
             int paddleHeight = 20;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = (this.Height - paddleHeight) - 60;
@@ -301,6 +301,7 @@ namespace BrickBreaker
                     {
                         currentLevel++;
                         NewLevel();
+                        holding = true;
                     }
 
                     break;
@@ -314,7 +315,17 @@ namespace BrickBreaker
 
         private void LevelLoad(string levelNo)
         {
-            XmlReader brickReader = XmlReader.Create("Resources/Level"+levelNo+".xml");   
+            XmlReader brickReader;
+            try
+            {
+                 brickReader = XmlReader.Create("Resources/Level" + levelNo + ".xml");
+            }
+            catch
+            {
+                Form1.ChangeScreen(this, "MenuScreen");
+                brickReader = XmlReader.Create("Resources/Level1.xml");
+            }
+
 
             while (brickReader.Read())
             {
@@ -334,9 +345,11 @@ namespace BrickBreaker
                 {
                     blocks.Add(b);
                 }
-                
+
             }
             brickReader.Close();
+
+        
         }
         
         public void OnEnd()
@@ -363,22 +376,8 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-                if (b.hp == 1)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.greenBrick2, b.x, b.y);
-                }
-                else if (b.hp == 2)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.blueBrick2, b.x, b.y);
-                }
-                else if (b.hp == 3)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.purpBrick2, b.x, b.y);
-                }
-                else if (b.hp == 4)
-                {
-                    e.Graphics.DrawImage(Properties.Resources.redBrick2, b.x, b.y);
-                }
+               
+                e.Graphics.DrawImage(b.UpdateColour(), b.x, b.y);
             }
 
             // Draws powerups
@@ -392,7 +391,10 @@ namespace BrickBreaker
             e.Graphics.DrawString("Score: " + score, scoreFont, scoreBrush, 0, 25);
 
             //draw lives
-            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 150, 25);
+
+
+            e.Graphics.DrawString("Lives: " + lives, scoreFont, scoreBrush, this.Width - 140, 25);
+
         }
 
     }
