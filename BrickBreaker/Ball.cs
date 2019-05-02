@@ -29,8 +29,10 @@ namespace BrickBreaker
         
         public bool BlockCollision(Block b)
         {
-            Rectangle blockRec = new Rectangle(b.x, (b.y + (b.height / 2)), b.width, b.height);
+            Rectangle blockBotRec = new Rectangle(b.x, (b.y + (b.height / 2)), b.width, b.height);
             Rectangle blockTopRec = new Rectangle(b.x, b.y, b.width, b.height / 2);
+            Rectangle blockLeftRec = new Rectangle(b.x, b.y + (b.height / 4), b.width / 2, b.height / 2);
+            Rectangle blockRightRec = new Rectangle(b.x + (b.width / 2), b.y + (b.height / 4), b.width / 2, b.height / 2);
             Rectangle ballRec = new Rectangle(x, y, size, size);
 
             if (ballRec.IntersectsWith(blockTopRec))
@@ -47,13 +49,13 @@ namespace BrickBreaker
                 {
                     ySpeed = -4;
                 }
-                else
+                else if (ySpeed == 5)
                 {
-                    ySpeed = -6;
+                    ySpeed = -5;
                 }
             }
 
-            if (ballRec.IntersectsWith(blockRec))
+            if (ballRec.IntersectsWith(blockBotRec))
             {
                     if (ySpeed == -2)
                     {
@@ -67,12 +69,51 @@ namespace BrickBreaker
                     {
                         ySpeed = 4;
                     }
-                    else
+                    else if (ySpeed == -5)
                     {
-                        ySpeed = 6;
+                        ySpeed = 5;
                     }
             }
-            if (blockRec.IntersectsWith(ballRec) || blockTopRec.IntersectsWith(ballRec))
+
+            if (ballRec.IntersectsWith(blockLeftRec))
+            {
+                if (xSpeed == -5)
+                {
+                    xSpeed = 2;
+                }
+                else if (ySpeed == -6)
+                {
+                    ySpeed = 3;
+                }
+                else if (ySpeed == -7)
+                {
+                    ySpeed = 4;
+                }
+                else if (ySpeed == -8)
+                {
+                    ySpeed = 6;
+                }
+                else if (ySpeed == 2)
+                {
+                    ySpeed = -2;
+                }
+                else if (ySpeed == 3)
+                {
+                    ySpeed = -3;
+                }
+                else if (ySpeed == 4)
+                {
+                    ySpeed = -4;
+                }
+                else
+                {
+                    ySpeed = -6;
+                }
+                
+            }
+
+
+            if (blockBotRec.IntersectsWith(ballRec) || blockTopRec.IntersectsWith(ballRec) || blockLeftRec.IntersectsWith(ballRec) || blockRightRec.IntersectsWith(ballRec))
             {
                 return true;
             }
@@ -89,7 +130,7 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                if (x < p.x + p.width / 2) // divide the paddle into 8 sections with different angles of ball launch
+                if (x < p.x + p.width * 4 / 8) // divide the paddle into 8 sections with different angles of ball launch
                 {
                     ySpeed = -5;
                     xSpeed = -5;
@@ -104,7 +145,7 @@ namespace BrickBreaker
                     ySpeed = -2;
                     xSpeed = -8;
                 }
-                else if (x < p.x + p.width / 4)
+                else if (x < p.x + p.width * 2 / 8)
                 {
                     ySpeed = -3;
                     xSpeed = -7;
@@ -114,7 +155,7 @@ namespace BrickBreaker
                     ySpeed = -4;
                     xSpeed = -6;
                 }
-                else if (x < p.x + p.width * 3 / 4)
+                else if (x < p.x + p.width * 6 / 8)
                 {
                     ySpeed = -4;
                     xSpeed = 6;
@@ -124,7 +165,7 @@ namespace BrickBreaker
                     ySpeed = -3;
                     xSpeed = 7;
                 }
-                else
+                else if ((x + size) <= p.x + p.width)
                 {
                     ySpeed = -2;
                     xSpeed = 8;
@@ -187,9 +228,9 @@ namespace BrickBreaker
                 {
                     ySpeed = 4;
                 }
-                else
+                else if (ySpeed == -5)
                 {
-                    ySpeed = 6;
+                    ySpeed = 5;
                 }
             }
         }
