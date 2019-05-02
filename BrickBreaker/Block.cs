@@ -25,29 +25,29 @@ namespace BrickBreaker
             x = _x;
             y = _y;
             hp = _hp;
-            leftRec = new Rectangle(x, y, 1, height);
-            rightRec = new Rectangle(x + width, y, 1, height);
-            topRec = new Rectangle(x, y, width, 1);
-            bottomRec = new Rectangle(x, y + height, width, 1);
+            leftRec = new Rectangle(x, y, 2, height);
+            rightRec = new Rectangle(x + width, y, 2, height);
+            topRec = new Rectangle(x, y, width, 2);
+            bottomRec = new Rectangle(x, y + height, width, 2);
         }
-        public Color UpdateColour()
+        public Image UpdateColour()
         {
             switch (hp)
             {
                 case 1:
-                     return Color.Red;
+                     return Properties.Resources.redBrick2;
                     
                 case 2:
-                    return Color.Yellow;
+                    return Properties.Resources.purpBrick2;
                     
                 case 3:
-                    return Color.Green;
+                    return Properties.Resources.blueBrick2;
                    
                 case 4:
-                    return Color.Cyan;
+                    return Properties.Resources.greenBrick2;
                     
             }
-            return Color.Pink;
+            return Properties.Resources.button;
         }
     }
 } 
