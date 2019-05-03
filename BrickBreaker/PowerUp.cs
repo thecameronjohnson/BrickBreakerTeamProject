@@ -11,10 +11,11 @@ namespace BrickBreaker
     {
         public int powerValue;
         public int x, y, powerSpeed, size;
+        public int ballTimer, paddleTimer, scoreTimer = 0;
         public Color colour;
 
         // create a random number generator 
-       
+
 
         public PowerUp(int _x, int _y, int _powerSpeed, int _size, int _powerValue)
         {
@@ -33,9 +34,58 @@ namespace BrickBreaker
             return (powerUpRec.IntersectsWith(paddleRec));
         }
 
-        public Color UpdateColour()
+        public Color UpdatePowerUp()
         {
-           return Color.Blue;
+            switch (powerValue)
+            {
+                case 1:
+                    GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
+                    return Color.Blue;
+                case 2:
+                    GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
+                    return Color.Green;
+                case 3:
+                    GameScreen.scoreMult = GameScreen.scoreMult + 1;
+                    return Color.Red;
+                case 4:
+                    GameScreen.score = GameScreen.score + 2000;
+                    return Color.Pink;
+                case 5:
+                    GameScreen.score = GameScreen.lives++;
+                    return Color.White;
+                default:
+                    return Color.Yellow;
+            }
+        }
+
+        public void PowerUpTimer()
+        {
+            if (GameScreen.bSpeedMult > 1)
+            {
+                ballTimer++;
+                if(ballTimer > 600)
+                {
+                    GameScreen.bSpeedMult--;
+                }
+            }
+
+            if (GameScreen.pSpeedMult > 1)
+            {
+                paddleTimer++;
+                if (ballTimer > 600)
+                {
+                    GameScreen.pSpeedMult--;
+                }
+            }
+
+            if (GameScreen.scoreMult > 1)
+            {
+                scoreTimer++;
+                if (ballTimer > 600)
+                {
+                    GameScreen.scoreMult--; ;
+                }
+            }
         }
 
         //move the power up down the screen
