@@ -89,7 +89,7 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             ballList.Add(ball);
-
+            
 
             NewLevel();
 
