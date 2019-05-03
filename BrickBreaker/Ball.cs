@@ -26,7 +26,7 @@ namespace BrickBreaker
             x = x + xSpeed;
             y = y + ySpeed;
         }
-        
+
         public bool BlockCollision(Block b)
         {
             Rectangle blockBotRec = new Rectangle(b.x, (b.y + (b.height / 2)), b.width, b.height);
@@ -38,80 +38,34 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(blockTopRec))
             {
-                if (ySpeed == 2)
+                if (ySpeed > 0)
                 {
-                    ySpeed = -2;
+                    ySpeed = ySpeed * -1;
                 }
-                else if (ySpeed == 3)
+            }
+            else if (ballRec.IntersectsWith(blockBotRec))
+            {
+                if (ySpeed < 0)
                 {
-                    ySpeed = -3;
+                    ySpeed = ySpeed * -1;
                 }
-                else if (ySpeed == 4)
+            }
+            else if (ballRec.IntersectsWith(blockLeftRec))
+            {
+                if (xSpeed > 0)
                 {
-                    ySpeed = -4;
+                    xSpeed = xSpeed * -1;
                 }
-                else if (ySpeed == 5)
+
+            }
+            else if (ballRec.IntersectsWith(blockRightRec))
+            {
+                if (xSpeed < 0)
                 {
-                    ySpeed = -5;
+                    xSpeed = xSpeed * -1;
                 }
             }
 
-            if (ballRec.IntersectsWith(blockBotRec))
-            {
-                    if (ySpeed == -2)
-                    {
-                        ySpeed = 2;
-                    }
-                    else if (ySpeed == -3)
-                    {
-                        ySpeed = 3;
-                    }
-                    else if (ySpeed == -4)
-                    {
-                        ySpeed = 4;
-                    }
-                    else if (ySpeed == -5)
-                    {
-                        ySpeed = 5;
-                    }
-            }
-
-            if (ballRec.IntersectsWith(blockLeftRec))
-            {
-                if (xSpeed == -5)
-                {
-                    xSpeed = 2;
-                }
-                else if (ySpeed == -6)
-                {
-                    ySpeed = 3;
-                }
-                else if (ySpeed == -7)
-                {
-                    ySpeed = 4;
-                }
-                else if (ySpeed == -8)
-                {
-                    ySpeed = 6;
-                }
-                else if (ySpeed == 2)
-                {
-                    ySpeed = -2;
-                }
-                else if (ySpeed == 3)
-                {
-                    ySpeed = -3;
-                }
-                else if (ySpeed == 4)
-                {
-                    ySpeed = -4;
-                }
-                else
-                {
-                    ySpeed = -6;
-                }
-                
-            }
             if (blockBotRec.IntersectsWith(ballRec) || blockTopRec.IntersectsWith(ballRec) || blockLeftRec.IntersectsWith(ballRec) || blockRightRec.IntersectsWith(ballRec))
             {
                 return true;
@@ -182,54 +136,27 @@ namespace BrickBreaker
             // Collision with left wall
             if (x <= 0)
             {
-                if (xSpeed == -6) //if xspeed is *6* while colliding, move to the right that amount
+                if (xSpeed <= 0)
                 {
-                    xSpeed = 6;
-                }
-                else if (xSpeed == -7) //if xspeed is *7* while colliding, move to the right that amount
-                {
-                    xSpeed = 7;
-                }
-                else //if xspeed is *8* while colliding, move to the right that amount
-                {
-                    xSpeed = 8;
+                    xSpeed = xSpeed * -1;
                 }
             }
 
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                if (xSpeed == 6) //if xspeed is *6* while colliding, move to the left that amount
+                if (xSpeed >= 0)
                 {
-                    xSpeed = -6;
-                }
-                else if (xSpeed == 7)
-                {
-                    xSpeed = -7;
-                }
-                else
-                {
-                    xSpeed = -8;
+                    xSpeed = xSpeed * -1;
                 }
             }
+
             // Collision with top wall
-            if (y <= 2)
+            if (y <= 41)
             {
-                if (ySpeed == -2) //if yspeed is *6* while colliding, move to the left that amount
+                if (ySpeed <= 0)
                 {
-                    ySpeed = 2;
-                }
-                else if (xSpeed == -3)
-                {
-                    ySpeed = 3;
-                }
-                else if (xSpeed == -4)
-                {
-                    ySpeed = 4;
-                }
-                else if (ySpeed == -5)
-                {
-                    ySpeed = 5;
+                    ySpeed = ySpeed * -1;
                 }
             }
         }
