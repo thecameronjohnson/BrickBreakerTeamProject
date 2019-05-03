@@ -217,6 +217,7 @@ namespace BrickBreaker
             //Move powerups
             try
             {
+                foreach(PowerUp p in powers) { 
                 p.Move();
                 p.PowerUpTimer();
                 if (p.PowerUpCollision(paddle))
