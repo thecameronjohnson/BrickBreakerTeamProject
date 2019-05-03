@@ -26,13 +26,15 @@ namespace BrickBreaker
 
         // Game values
 
-        int currentLevel = 4;
+        int currentLevel = 1;
         string level, levelName;
-        public static int lives, score, scoreMult;
+        public static int lives, score;
         public static int powerupSpeed = 2;
         public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
+        public static int scoreMult = 1;
+
         Font scoreFont = new Font("OCR A std", 14, FontStyle.Regular);
         SolidBrush scoreBrush = new SolidBrush(Color.Cyan);
 
@@ -99,6 +101,13 @@ namespace BrickBreaker
 
         public void NewLevel()
         {
+            if (lives < 5)
+            {
+                lives++;
+            }
+            bSpeedMult = 1;
+            pSpeedMult = 1;
+            scoreMult = 1;
             LevelLoad(Convert.ToString(currentLevel));
         }
 
@@ -405,8 +414,9 @@ namespace BrickBreaker
         }
 
         public void NumberGen()
-        {
-            powerValue = randGen.Next(1, 5);
+
+        {          
+            powerValue = randGen.Next(1, 6);
         }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
@@ -427,7 +437,7 @@ namespace BrickBreaker
             // Draws powerups
             foreach (PowerUp p in powers)
             {
-                SolidBrush powerBrush = new SolidBrush(p.UpdateColour());
+                SolidBrush powerBrush = new SolidBrush(p.UpdatePowerUp());
                 e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
             }
 

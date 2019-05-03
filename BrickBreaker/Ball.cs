@@ -26,7 +26,7 @@ namespace BrickBreaker
             x = x + xSpeed;
             y = y + ySpeed;
         }
-        
+
         public bool BlockCollision(Block b)
         {
             Rectangle blockBotRec = new Rectangle(b.x, (b.y + (b.height / 2)), b.width, b.height);
@@ -38,80 +38,34 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(blockTopRec))
             {
-                if (ySpeed == 2)
+                if (ySpeed > 0)
                 {
-                    ySpeed = -2;
+                    ySpeed = ySpeed * -1;
                 }
-                else if (ySpeed == 3)
+            }
+            else if (ballRec.IntersectsWith(blockBotRec))
+            {
+                if (ySpeed < 0)
                 {
-                    ySpeed = -3;
+                    ySpeed = ySpeed * -1;
                 }
-                else if (ySpeed == 4)
+            }
+            else if (ballRec.IntersectsWith(blockLeftRec))
+            {
+                if (xSpeed > 0)
                 {
-                    ySpeed = -4;
+                    xSpeed = xSpeed * -1;
                 }
-                else if (ySpeed == 5)
+
+            }
+            else if (ballRec.IntersectsWith(blockRightRec))
+            {
+                if (xSpeed < 0)
                 {
-                    ySpeed = -5;
+                    xSpeed = xSpeed * -1;
                 }
             }
 
-            if (ballRec.IntersectsWith(blockBotRec))
-            {
-                    if (ySpeed == -2)
-                    {
-                        ySpeed = 2;
-                    }
-                    else if (ySpeed == -3)
-                    {
-                        ySpeed = 3;
-                    }
-                    else if (ySpeed == -4)
-                    {
-                        ySpeed = 4;
-                    }
-                    else if (ySpeed == -5)
-                    {
-                        ySpeed = 5;
-                    }
-            }
-
-            if (ballRec.IntersectsWith(blockLeftRec))
-            {
-                if (xSpeed == -5)
-                {
-                    xSpeed = 2;
-                }
-                else if (ySpeed == -6)
-                {
-                    ySpeed = 3;
-                }
-                else if (ySpeed == -7)
-                {
-                    ySpeed = 4;
-                }
-                else if (ySpeed == -8)
-                {
-                    ySpeed = 6;
-                }
-                else if (ySpeed == 2)
-                {
-                    ySpeed = -2;
-                }
-                else if (ySpeed == 3)
-                {
-                    ySpeed = -3;
-                }
-                else if (ySpeed == 4)
-                {
-                    ySpeed = -4;
-                }
-                else
-                {
-                    ySpeed = -6;
-                }
-                
-            }
             if (blockBotRec.IntersectsWith(ballRec) || blockTopRec.IntersectsWith(ballRec) || blockLeftRec.IntersectsWith(ballRec) || blockRightRec.IntersectsWith(ballRec))
             {
                 return true;
