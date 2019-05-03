@@ -26,7 +26,7 @@ namespace BrickBreaker
 
         // Game values
 
-        int currentLevel = 4;
+        int currentLevel = 1;
         string level, levelName;
         public static int lives, score, scoreMult;
         public static int powerupSpeed = 2;
@@ -99,6 +99,13 @@ namespace BrickBreaker
 
         public void NewLevel()
         {
+            if (lives < 5)
+            {
+                lives++;
+            }
+            bSpeedMult = 1;
+            pSpeedMult = 1;
+            scoreMult = 1;
             LevelLoad(Convert.ToString(currentLevel));
         }
 
