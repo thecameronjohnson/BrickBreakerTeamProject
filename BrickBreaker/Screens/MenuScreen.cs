@@ -28,8 +28,6 @@ namespace BrickBreaker
         {
             // Goes to the game screen  
             Form1.ChangeScreen(this,"GameScreen");
-
-
         }
 
         private void lorenAllignment()
