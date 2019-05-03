@@ -28,11 +28,13 @@ namespace BrickBreaker
 
         int currentLevel = 1;
         string level, levelName;
-        public static int lives, score, scoreMult;
+        public static int lives, score;
         public static int powerupSpeed = 2;
         public static double lastPower = 0;
         public static int bSpeedMult = 1;
         public static int pSpeedMult = 1;
+        public static int scoreMult = 1;
+
         Font scoreFont = new Font("OCR A std", 14, FontStyle.Regular);
         SolidBrush scoreBrush = new SolidBrush(Color.Cyan);
 
@@ -215,31 +217,14 @@ namespace BrickBreaker
             //Move powerups
             try
             {
-                foreach (PowerUp p in powers)
+                p.Move();
+                p.PowerUpTimer();
+                if (p.PowerUpCollision(paddle))
                 {
-                    p.Move();
-                    if (p.PowerUpCollision(paddle))
-                    {
-                        switch (powerValue)
-                        {
-                            case 1:
-                                GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
-
-                                break;
-                            case 2:
-                                GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
-                                break;
-                            case 3:
-                                GameScreen.scoreMult = GameScreen.scoreMult + 1;
-                                break;
-                            case 4:
-                                GameScreen.score = GameScreen.score + 2000;
-                                break;
-                        }
-                        powers.Remove(powers[0]);
-                        break;
-                    }
-
+                    p.UpdatePowerUp();
+                    powers.Remove(powers[0]);
+                    break;
+                }
                     //delete power up if it goes off the screen
                     if (p.y > paddle.y + 10)
                     {
@@ -248,8 +233,6 @@ namespace BrickBreaker
                 }
             }
             catch { }
-
-
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
@@ -414,8 +397,9 @@ namespace BrickBreaker
         }
 
         public void NumberGen()
-        {
-            powerValue = randGen.Next(1, 5);
+
+        {          
+            powerValue = randGen.Next(1, 6);
         }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
@@ -436,7 +420,7 @@ namespace BrickBreaker
             // Draws powerups
             foreach (PowerUp p in powers)
             {
-                SolidBrush powerBrush = new SolidBrush(p.UpdateColour());
+                SolidBrush powerBrush = new SolidBrush(p.UpdatePowerUp());
                 e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
             }
 
