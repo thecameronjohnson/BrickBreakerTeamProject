@@ -217,36 +217,19 @@ namespace BrickBreaker
             //Move powerups
 
                 foreach (PowerUp p in powers)
-
                 {
                     p.Move();
                     if (p.PowerUpCollision(paddle))
                     {
-                        switch (powerValue)
-                        {
-                            case 1:
-                                GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
-
-                                break;
-                            case 2:
-                                GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
-                                break;
-                            case 3:
-                                GameScreen.scoreMult = GameScreen.scoreMult + 1;
-                                break;
-                            case 4:
-                                GameScreen.score = GameScreen.score + 2000;
-                                break;
-                        }
+                        p.UpdatePowerUp();
                         powers.Remove(powers[0]);
                         break;
                     }
-
                     //delete power up if it goes off the screen
                     if (p.y > paddle.y + 10)
                     {
                         powers.Remove(powers[0]);
-                    break;
+                        break;
                     }
                 }
             
@@ -290,7 +273,6 @@ namespace BrickBreaker
                 }
             }
 
-
             if (ballList.Count() == 0)
             {
                 lives--;
@@ -301,6 +283,11 @@ namespace BrickBreaker
                 int xSpeed = 6;
                 int ySpeed = 6;
                 int ballSize = 20;
+
+                scoreMult = 1;
+                pSpeedMult = 1;
+                bSpeedMult = 1;
+
 
                 ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
                 ballList.Add(ball);
