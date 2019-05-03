@@ -45,7 +45,7 @@ namespace BrickBreaker
         List<Ball> ballList = new List<Ball>();
         List<PowerUp> powers = new List<PowerUp>();
 
-        
+
 
         //Random number gen
         Random randGen = new Random();
@@ -55,7 +55,7 @@ namespace BrickBreaker
 
         public GameScreen()
         {
-            InitializeComponent();            
+            InitializeComponent();
             OnStart();
         }
 
@@ -194,38 +194,41 @@ namespace BrickBreaker
                 ball.Move();
             }
             //Move powerups
-            foreach (PowerUp p in powers)
+            if (powers.Count > 0)
             {
-                p.Move();
-                if (p.PowerUpCollision(paddle))
+                foreach (PowerUp p in powers)
                 {
-                    switch (powerValue)
+                    p.Move();
+                    if (p.PowerUpCollision(paddle))
                     {
-                        case 1:
-                            GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
+                        switch (powerValue)
+                        {
+                            case 1:
+                                GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
 
-                            break;
-                        case 2:
-                            GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
-                            break;
-                        case 3:
-                            GameScreen.scoreMult = GameScreen.scoreMult + 1;
-                            break;
-                        case 4:
-                            GameScreen.score = GameScreen.score + 2000;
-                            break;                         
+                                break;
+                            case 2:
+                                GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
+                                break;
+                            case 3:
+                                GameScreen.scoreMult = GameScreen.scoreMult + 1;
+                                break;
+                            case 4:
+                                GameScreen.score = GameScreen.score + 2000;
+                                break;
+                        }
+                        powers.Remove(powers[0]);
+                        break;
                     }
-                    powers.Remove(powers[0]);
-                    break;
-                }
 
-                //delete power up if it goes off the screen
-                if(p.y > paddle.y + 10)
-                {
-                    powers.Remove(powers[0]);
+                    //delete power up if it goes off the screen
+                    if (p.y > paddle.y + 10)
+                    {
+                        powers.Remove(powers[0]);
+                    }
                 }
             }
-           
+
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
@@ -306,10 +309,10 @@ namespace BrickBreaker
                     {
                         blocks.Remove(b);
 
-                        score = score + 100*scoreMult;
+                        score = score + 100 * scoreMult;
                         double d = score / 500;
                         double scoreint = Math.Round(d);
-                        
+
                         if (scoreint > lastPower)
                         {
                             lastPower = scoreint;
@@ -318,7 +321,7 @@ namespace BrickBreaker
 
                             PowerUp power = new PowerUp(blockSize / 2 + blockX, blockY, powerupSpeed, 15, powertype);
                             powers.Add(power);
-                        }                        
+                        }
 
                     }
 
@@ -347,7 +350,7 @@ namespace BrickBreaker
             XmlReader brickReader;
             try
             {
-                 brickReader = XmlReader.Create("Resources/Level" + levelNo + ".xml");
+                brickReader = XmlReader.Create("Resources/Level" + levelNo + ".xml");
             }
             catch
             {
@@ -378,19 +381,19 @@ namespace BrickBreaker
             }
             brickReader.Close();
 
-        
+
         }
-        
+
         public void OnEnd()
 
-        {    
+        {
             //MenuScreen ps = new MenuScreen();
             Form1.ChangeScreen(this, "HighScreen");
 
         }
 
         public void NumberGen()
-        {          
+        {
             powerValue = randGen.Next(1, 5);
         }
 
@@ -405,7 +408,7 @@ namespace BrickBreaker
             // Draws blocks
             foreach (Block b in blocks)
             {
-               
+
                 e.Graphics.DrawImage(b.UpdateColour(), b.x, b.y);
             }
 
@@ -417,8 +420,8 @@ namespace BrickBreaker
             }
 
             //draw upper boarder
-            e.Graphics.FillRectangle(scoreBrush, 0, 0, this.Width, 40);                  
-                       
+            e.Graphics.FillRectangle(scoreBrush, 0, 0, this.Width, 40);
+
         }
 
     }
