@@ -22,7 +22,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, spaceKeyDown, escDown, gamePaused, holding;
+        Boolean leftArrowDown, rightArrowDown, spaceKeyDown, escDown, gamePaused, holding, aKeyDown, dKeyDown;
 
         // Game values
 
@@ -68,7 +68,7 @@ namespace BrickBreaker
             scoreMult = 1;
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = escDown = gamePaused = false;
+            leftArrowDown = rightArrowDown = escDown = gamePaused = aKeyDown = dKeyDown = false;
             holding = true;
 
             // setup starting paddle values and create paddle object
@@ -120,6 +120,12 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
+                case Keys.D:
+                    dKeyDown = true;
+                    break;
+                case Keys.A:
+                    aKeyDown = true;
+                    break;
                 case Keys.Escape:
                     if (gamePaused == true)
                     {
@@ -152,6 +158,12 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = false;
+                    break;
+                case Keys.A:
+                    aKeyDown = false;
+                    break;
+                case Keys.D:
+                    dKeyDown = false;
                     break;
                 case Keys.Space:
                     spaceKeyDown = false;
