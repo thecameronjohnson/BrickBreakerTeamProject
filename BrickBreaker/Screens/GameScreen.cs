@@ -215,8 +215,7 @@ namespace BrickBreaker
                 ball.Move();
             }
             //Move powerups
-            try
-            {
+
                 foreach (PowerUp p in powers)
                 {
                     p.Move();
@@ -233,8 +232,8 @@ namespace BrickBreaker
                         break;
                     }
                 }
-            }
-            catch { }
+            
+
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
