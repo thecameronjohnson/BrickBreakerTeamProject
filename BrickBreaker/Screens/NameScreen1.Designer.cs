@@ -40,7 +40,7 @@
             this.initial1.BackColor = System.Drawing.Color.Transparent;
             this.initial1.Font = new System.Drawing.Font("OCR A Std", 102F, System.Drawing.FontStyle.Bold);
             this.initial1.ForeColor = System.Drawing.Color.Cyan;
-            this.initial1.Location = new System.Drawing.Point(150, 154);
+            this.initial1.Location = new System.Drawing.Point(139, 204);
             this.initial1.Name = "initial1";
             this.initial1.Size = new System.Drawing.Size(162, 144);
             this.initial1.TabIndex = 0;
@@ -52,7 +52,7 @@
             this.initial2.BackColor = System.Drawing.Color.Transparent;
             this.initial2.Font = new System.Drawing.Font("OCR A Std", 102F, System.Drawing.FontStyle.Bold);
             this.initial2.ForeColor = System.Drawing.Color.Cyan;
-            this.initial2.Location = new System.Drawing.Point(318, 154);
+            this.initial2.Location = new System.Drawing.Point(307, 204);
             this.initial2.Name = "initial2";
             this.initial2.Size = new System.Drawing.Size(162, 144);
             this.initial2.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.initial3.BackColor = System.Drawing.Color.Transparent;
             this.initial3.Font = new System.Drawing.Font("OCR A Std", 102F, System.Drawing.FontStyle.Bold);
             this.initial3.ForeColor = System.Drawing.Color.Cyan;
-            this.initial3.Location = new System.Drawing.Point(486, 154);
+            this.initial3.Location = new System.Drawing.Point(475, 204);
             this.initial3.Name = "initial3";
             this.initial3.Size = new System.Drawing.Size(162, 144);
             this.initial3.TabIndex = 2;
