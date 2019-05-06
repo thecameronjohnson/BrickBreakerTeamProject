@@ -28,23 +28,18 @@ namespace BrickBreaker
             switch (powerValue)
             {
                 case 1:
-
                     colour = Color.Blue;
                     break;
                 case 2:
-
                     colour = Color.Green;
                     break;
                 case 3:
-
                     colour = Color.Red;
                     break;
                 case 4:
-
                     colour = Color.Pink;
                     break;
                 case 5:
-
                     colour = Color.White;
                     break;
                 default:
@@ -61,27 +56,27 @@ namespace BrickBreaker
             return (powerUpRec.IntersectsWith(paddleRec));
         }
 
-        public Color UpdatePowerUp()
+        public void UpdatePowerUp()
         {
             switch (powerValue)
             {
                 case 1:
                     GameScreen.bSpeedMult = GameScreen.bSpeedMult + 1;
-                    return Color.Blue;
+                    break;
                 case 2:
                     GameScreen.pSpeedMult = GameScreen.pSpeedMult + 1;
-                    return Color.Green;
+                    break;
                 case 3:
                     GameScreen.scoreMult = GameScreen.scoreMult + 1;
-                    return Color.Red;
+                    break;
                 case 4:
                     GameScreen.score = GameScreen.score + 2000;
-                    return Color.Pink;
+                    break;
                 case 5:
                     GameScreen.score = GameScreen.lives++;
-                    return Color.White;
+                    break;
                 default:
-                    return Color.Yellow;
+                    break;
             }
         }
 
