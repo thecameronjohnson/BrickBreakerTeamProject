@@ -24,6 +24,33 @@ namespace BrickBreaker
             powerSpeed = _powerSpeed;
             size = _size;
             powerValue = _powerValue;
+            
+            switch (powerValue)
+            {
+                case 1:
+
+                    colour = Color.Blue;
+                    break;
+                case 2:
+
+                    colour = Color.Green;
+                    break;
+                case 3:
+
+                    colour = Color.Red;
+                    break;
+                case 4:
+
+                    colour = Color.Pink;
+                    break;
+                case 5:
+
+                    colour = Color.White;
+                    break;
+                default:
+                    colour = Color.Yellow;
+                    break;
+            }
         }
 
         public Boolean PowerUpCollision(Paddle p)
