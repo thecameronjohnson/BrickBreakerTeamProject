@@ -139,8 +139,6 @@ namespace BrickBreaker
                     {
                         gamePaused = true;
                     }
-
-                    //TODO: change screen
                     break;
                 case Keys.Space:
                     spaceKeyDown = true;
