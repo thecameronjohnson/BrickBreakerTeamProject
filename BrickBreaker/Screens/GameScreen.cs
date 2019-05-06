@@ -39,7 +39,7 @@ namespace BrickBreaker
         SolidBrush scoreBrush = new SolidBrush(Color.Cyan);
 
         // Paddle and Ball objects
-        Paddle paddle;
+        Paddle paddle, paddle2;
         Ball ball;
 
         // list of all blocks for current level
@@ -97,6 +97,16 @@ namespace BrickBreaker
 
             // start the game engine loop
             gameTimer.Enabled = true;
+            if (Form1.twoPlayer)
+            {
+                
+                int paddleWidth2 = 110;
+                int paddleHeight2 = 20;
+                int paddleX2 = ((this.Width / 2) - (paddleWidth / 2));
+                int paddleY2 = (this.Height - paddleHeight) - 20;
+                
+                paddle2 = new Paddle(paddleX2, paddleY2, paddleWidth2, paddleHeight2, paddleSpeed, Color.White);
+            }
         }
 
         public void NewLevel()
@@ -191,6 +201,18 @@ namespace BrickBreaker
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
+            }
+            //player 2 movege and stopge
+            if (Form1.twoPlayer)
+            {
+                if (aKeyDown && paddle2.x > 0)
+                {
+                    paddle2.Move("left");
+                }
+                if (dKeyDown && paddle2.x < (this.Width - paddle2.width))
+                {
+                    paddle2.Move("right");
+                }
             }
 
             if (escDown == true)
@@ -302,7 +324,10 @@ namespace BrickBreaker
 
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle, leftArrowDown, rightArrowDown);
-
+            if (Form1.twoPlayer)
+            {
+                ball.PaddleCollision(paddle2, aKeyDown, dKeyDown);
+            }
             // Check if ball has collided with any blocks
             foreach (Block b in blocks)
             {
@@ -410,15 +435,18 @@ namespace BrickBreaker
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             //Draw Paddle
+            
             e.Graphics.DrawImage(Properties.Resources.Player1, paddle.x, paddle.y);
-
+            if (Form1.twoPlayer)
+            {
+                e.Graphics.DrawImage(Properties.Resources.Player2, paddle2.x, paddle2.y);
+            }
             //Draw Ball
             e.Graphics.DrawImage(Properties.Resources.ball, ball.x, ball.y);
 
             // Draws blocks
             foreach (Block b in blocks)
             {
-
                 e.Graphics.DrawImage(b.UpdateColour(), b.x, b.y);
             }
 
