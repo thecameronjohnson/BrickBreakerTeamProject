@@ -451,7 +451,7 @@ namespace BrickBreaker
             // Draws powerups
             foreach (PowerUp p in powers)
             {
-                SolidBrush powerBrush = new SolidBrush(p.UpdatePowerUp());
+                SolidBrush powerBrush = new SolidBrush(p.colour);
                 e.Graphics.FillRectangle(powerBrush, p.x, p.y, p.size, p.size);
             }
 
